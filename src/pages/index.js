@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
-import LatestBlogs from "../components/latestBlog"
+// import LatestBlogs from "../components/latestBlog"
 import Countdown from "../components/countdown"
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from "gatsby";
@@ -36,7 +36,7 @@ class IndexPost extends React.Component {
                       <span className="price">${items.node.price}</span>
                     </div>
                     <div className="col-sm-8 text-right align-self-center">
-                      <a
+                      {/* <a
                         href="#"
                         className="Product snipcart-add-item"
                         data-item-id={items.node.slug}
@@ -46,7 +46,11 @@ class IndexPost extends React.Component {
                         data-item-url={`/`}
                       >
                         <i className="fas fa-shopping-bag" />Add to Cart
-                    </a>
+                    </a> */}
+                    <Link state={{ 
+                      itemName: items.node.name,
+                      itemPrice: items.node.price
+                      }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                     </div>
                   </div>
                 </div>
@@ -63,9 +67,9 @@ const IndexPage = data => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `oneshopper`, `react`, `Ecommerce`]} />
     <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
-    <LatestBlogs data={data.data.allContentfulBlogs} />
+    {/* <LatestBlogs data={data.data.allContentfulBlogs} /> */}
     <div className="container">
-      <div className="text-center"><h2 className="with-underline">Latest Items</h2></div>
+      <div className="text-center"><h2 className="with-underline">Our Latest Selections</h2></div>
       <IndexPost data={data}></IndexPost>
     </div>
     <Countdown data={data.data.contentfulDealCountDown} />

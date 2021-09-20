@@ -5,10 +5,10 @@ import { Link } from "gatsby";
 
 var settings = {
   dots: true,
-  speed: 500,
+  speed: 1500,
   infinite: true,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 3600,
   slidesToShow: 1,
   slidesToScroll: 1
 };

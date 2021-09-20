@@ -62,7 +62,7 @@ class IndexPost extends React.Component {
                       <span className="price">${items.node.price}</span>
                     </div>
                     <div className="col-sm-8 text-right align-self-center">
-                      <a
+                      {/* <a
                         href="#"
                         className="Product snipcart-add-item"
                         data-item-id={items.node.slug}
@@ -72,7 +72,13 @@ class IndexPost extends React.Component {
                         data-item-url={`/`}
                       >
                         <i className="fas fa-shopping-bag" />Add to Cart
-                    </a>
+                    </a> */}
+                      <Link state={{ 
+                        itemName: items.node.name,
+                        itemPrice: items.node.price
+                        }} className="btn btn-primary" to="/contact-us">
+                          Contact Us
+                      </Link>
                     </div>
                   </div>
                 </div>

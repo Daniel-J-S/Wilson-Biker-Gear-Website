@@ -1,7 +1,7 @@
 import React from "react"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StarRatingComponent from 'react-star-rating-component';
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -40,7 +40,7 @@ const ProductDetails = data => (
             <span className="price">Price: ${data.data.contentfulProduct.price}</span>
           </div>
           <div className="col-sm-10 text-left">
-            <a
+            {/* <a
               href="#"
               className="Product snipcart-add-item"
               data-item-id={data.data.contentfulProduct.slug}
@@ -51,7 +51,11 @@ const ProductDetails = data => (
             >
               <i className="fas fa-tags" />
               Buy Now
-            </a>
+            </a> */}
+            <Link state={{ 
+              itemName: data.data.contentfulProduct.name,
+              itemPrice: data.data.contentfulProduct.price
+            }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
           </div>
         </div>
         <div
