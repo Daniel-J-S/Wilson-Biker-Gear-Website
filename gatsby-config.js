@@ -5,9 +5,9 @@ const { spaceId, accessToken, snipcart } = process.env;
 
 module.exports = {
   siteMetadata: {
-    title: `OneShopper`,
-    description: `E-Commerce site with Gatsby and React`,
-    author: `@rohitguptab`,
+    title: `Wilson Biker Supply`,
+    description: `Business Website For Wilson Biker Supply`,
+    author: `DanielJS`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,11 +24,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `OneShopper`,
+        name: `Wilson Bike Supply`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#000000`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
       },
