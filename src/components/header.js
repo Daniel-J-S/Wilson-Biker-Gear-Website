@@ -5,7 +5,7 @@ import "../css/font-awesome.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "../css/style.css"
 import SEO from "../components/seo"
-import logo from "../images/oneshopper-logo.png"
+import logo from "../images/logo.png"
 
 
 
@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
     <div className="container">
       <div className="row">
         <div className="col-sm-12 col-md-4 align-self-center">
-          <Link className="header-logo" to="/"><img src={logo} alt="logo"></img></Link>
+          <Link className="header-logo" to="/"><img src={logo} alt="logo" style={{height: 75, width: 75}}></img></Link>
         </div>
         <div className="col-sm-12 col-md-8 align-self-center">
           <nav>
@@ -24,9 +24,9 @@ const Header = ({ siteTitle }) => (
               <li className="nav-item active">
                 <Link className="nav-link" to="/">Home</Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/blogs">Blogs</Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/store">Store</Link>
               </li>
@@ -37,11 +37,11 @@ const Header = ({ siteTitle }) => (
                 <Link className="nav-link" to="/contact-us">Contact</Link>
               </li>
             </ul>
-            <div className="header-cart">
+             {/*<div className="header-cart">
               <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
                 <i className="fas fa-cart-plus"></i>
               </Link>
-              {/* <button class="snipcart-add-item"
+              <button class="snipcart-add-item"
                 data-item-id="starry-night"
                 data-item-price="79.99"
                 data-item-url="/paintings/starry-night"
@@ -49,8 +49,8 @@ const Header = ({ siteTitle }) => (
                 data-item-image="/assets/images/starry-night.jpg"
                 data-item-name="The Starry Night">
                 Add to cart
-              </button> */}
-            </div>
+              </button> 
+            </div>*/}
           </nav>
         </div>
       </div>

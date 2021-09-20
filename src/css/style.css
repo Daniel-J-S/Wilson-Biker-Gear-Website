@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,700,700i&display=swap');
-
-html{font-family:'Josefin Sans',sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+/* @import url('https://fonts.googleapis.com/css?family=Arbutus+Sans:300,400,400i,600,700,700i&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&display=swap');
+html{font-family:'Arbutus Sans',sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 body{margin:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 article,
 aside,
@@ -148,7 +148,7 @@ pre tt:after{content:""}
 }
 
 
-*{font-family:'Josefin Sans',sans-serif;}
+*{font-family: 'Arbutus', cursive;}
 .product-main .details_List .gatsby-image-wrapper{height:200px;}
 .img{outline:none;}
 .product-main .details_List{margin:0 0 30px 0;-webkit-box-shadow:0 5px 10px -3px rgba(0,0,0,0.25);box-shadow:0 5px 10px -3px rgba(0,0,0,0.25);-webkit-transition:-webkit-box-shadow 0.2s;-o-transition:box-shadow 0.2s;transition:box-shadow 0.2s,-webkit-box-shadow 0.2s;border:1px solid #cccccc73;}
@@ -161,7 +161,7 @@ pre tt:after{content:""}
 .product-details .gatsby-image-wrapper{height:500px;}
 
 /* header css */
-header.site-header{width:100%;background:#333333;z-index:9;padding:20px 0;}
+header.site-header{width:100%;background:#000000;z-index:9;padding:20px 0;}
 ul.navbar-nav.mr-auto li{margin-bottom:0;}
 main{margin:0;}
 .header-cart{width:80px;}
@@ -175,7 +175,7 @@ header nav ul.navbar-nav li{margin:0 10px;}
 header nav ul.navbar-nav li a{color:#fff;}
 
 /* header css */
-footer.site-footer{background:#333;padding:0;text-align:center;}
+footer.site-footer{background:#000000;padding:0;text-align:center;}
 footer.site-footer *{color:#fff;}
 .no-image{height:200px;background:#ef3d5675;display:flex;justify-content:center;flex-direction:column;text-align:center;color:#fff;text-shadow:1px 1px 5px #000;}
 .snipcart-add-item i.fas{margin-right:8px;}

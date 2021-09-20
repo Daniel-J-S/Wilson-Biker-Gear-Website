@@ -6,13 +6,13 @@ class About extends React.Component {
     render() {
         return ( <
             Layout >
-            <SEO title="About" keywords={[`gatsby`, `About`, `react`]} /> <
+            <SEO title="About" keywords={[`leather goods`, `biker gear`, `vests`]} /> <
             div className = "site-About" >
             <div className="container">
             <div className="row">
                 <div className="col-sm-12">
                     <h2>About Us</h2>
-                    <p>This Started created for Ecommerce site with Gatsby + Contentful and snipcart</p>
+                    <p>40 years experience in leather goods, sewing and passing on the best prices to customers.  Looking for Biker Gear, accessories or just need your patches sewed on.  I specialize in exceptional quality and precision to ensure they are done right the 1st time.</p>
                     <p><a href="https://rohitgupta.design/oneshopper-gatsby-site" target="_blank" rel="noopener noreferrer">https://rohitgupta.design/oneshopper-gatsby-site</a></p>
                     <h2>Author</h2>
                     <div class="row">
@@ -43,37 +43,11 @@ class About extends React.Component {
                         <li>Index pages design with Latest Post, Latest Blog and Deal of week and Banner.</li>
                         <li>So many other Good features</li>
                     </ul>
-                    <h2>Setup</h2>
-                    <h3>Create a Gatsby site.</h3>
-                    <p>Use the Gatsby CLI to Clone this site.</p>
-                    <code>
-                        # Clone this Repositories<br></br>
-                        gatsby new OneShopper https://github.com/Rohitguptab/OneShopper.git
-                    </code>
-                    <p>Checkout my below blog how to Import and Export data from ContentFul</p>
-                    <p><a href="https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli" target="_blank" rel="noopener noreferrer">https://rohitgupta.netlify.app/import-and-export-data-with-contentful-cli</a></p>
-                    <h3>Start developing.</h3>
-                    <p>Navigate into your new site’s directory and start it up.</p>
-                    <code>
-                        cd OneShopper<br></br>
-                        npm install<br></br>
-                        gatsby develop
-                    </code>
-                    <h3>Setup your Own Configure Projects.</h3>
-                    <p>Enter your own key</p>
-                    <strong>ContentFul:</strong>
-                    <ul>
-                        <li>spaceId = Key</li>
-                        <li>accessToken = Key</li>
-                    </ul>
-                    <strong>snipcart:</strong>
-                    <ul>
-                        <li>snipcart = Key</li>
-                    </ul>
+                    </div>
                 </div>
-            </div>
-        </div> < /div> </
-            Layout >
+            </div> 
+        </div> 
+        </Layout >
         )
     }
 }
