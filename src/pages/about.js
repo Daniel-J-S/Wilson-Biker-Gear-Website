@@ -7,7 +7,7 @@ class About extends React.Component {
     render() {
         return ( 
         <Layout >
-            <SEO title="About" keywords={[`leather goods`, `biker gear`, `vests`]} />
+            <SEO title="About" keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} />
             <div className="site-About">
             <div className="container">
             <div className="row">

@@ -13,7 +13,7 @@ function Contact ({ location }) {
     }
     return (
         <Layout>
-            <SEO title="Contact Us" keywords={[`gatsby`, `Contact Us`, `react`]} />
+            <SEO title="Contact Us" keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} />
             <div className="Contact-us">
                 <div className="container">
                     {/* To make form work, use your own formspree credentials in action="" */}
