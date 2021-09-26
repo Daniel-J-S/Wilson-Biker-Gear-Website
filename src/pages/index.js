@@ -16,14 +16,15 @@ class IndexPost extends React.Component {
       <React.Fragment>
         <div className="row product-main">
           {data.data.allContentfulProduct.edges.map(items => (
-            <div className="Catalogue__item col-sm-12 col-md-6 col-lg-4" key={items.node.id}>
+            <Link className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
+            <div key={items.node.id}>
               <div className="details_List">
                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
 
                 <div className="details_inner">
 
                   <h2>
-                    <Link to={`/${items.node.slug}`}>{items.node.name}</Link>
+                    {items.node.name}
                   </h2>
                   <StarRatingComponent
                     name="rate1"
@@ -56,6 +57,7 @@ class IndexPost extends React.Component {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </React.Fragment>

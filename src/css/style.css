@@ -341,3 +341,7 @@ code{margin-bottom:30px;display:block;padding:20px 20px!important;}
 p {
   font-family: 'Roboto', sans-serif !important;
 }
+
+.Catalogue__item {
+  color: #000;
+}
