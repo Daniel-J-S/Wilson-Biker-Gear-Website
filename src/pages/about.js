@@ -18,7 +18,7 @@ class About extends React.Component {
                         </div>
                     </div>
                     <h2>About Us</h2>
-                    <p>40 years experience in leather goods, sewing and passing on the best prices to customers.  Looking for Biker Gear, accessories or just need your patches sewed on.  I specialize in exceptional quality and precision to ensure they are done right the 1st time.</p>
+                    <p>40 years experience in leather goods, sewing and passing on the best prices to customers.  <br /><br /> Looking for Biker Gear, accessories or just need your patches sewed on? <br />We specialize in exceptional quality and precision to ensure they are done right the first time.</p>
                     </div>
                 </div>
             </div> 
