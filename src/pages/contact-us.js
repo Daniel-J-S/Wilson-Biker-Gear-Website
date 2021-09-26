@@ -28,8 +28,7 @@ function Contact ({ location }) {
                         </div>
                         <div>
                             <label>Message: 
-                            <textarea name="message" required>
-                             {getItemDetails() || ""}
+                            <textarea defaultValue={getItemDetails() || ""} name="message" required>
                             </textarea></label>
                         </div>
                         <div>
