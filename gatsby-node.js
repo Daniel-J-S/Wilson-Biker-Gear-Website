@@ -1,7 +1,7 @@
 var path = require("path")
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     const StoreTemplate = path.resolve("src/templates/details.js")
     const BlogTemplate = path.resolve("src/templates/blogDetails.js")
