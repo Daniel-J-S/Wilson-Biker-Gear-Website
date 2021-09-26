@@ -22,7 +22,7 @@ class Footer extends Component {
                         </div>
                         <div className="footer-bottom social-right-menu ">
                             <div className="site-info">
-                                ©2019 Wilson Biker Gear. All rights reserved.
+                                ©{new Date().getFullYear()} Wilson Biker Gear. All rights reserved.
                             </div>
                         </div>
                     </div>
