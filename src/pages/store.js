@@ -7,13 +7,10 @@ import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from "gatsby";
 
 class IndexPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       NoOfPost: 6
-    };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
+};
+ 
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
@@ -74,12 +71,6 @@ class IndexPost extends React.Component {
                       >
                         <i className="fas fa-shopping-bag" />Add to Cart
                     </a> */}
-                      <Link state={{ 
-                        itemName: items.node.name,
-                        itemPrice: items.node.price
-                        }} className="btn btn-primary" to="/contact-us">
-                          Contact Us
-                      </Link>
                     </div>
                   </div>
                 </div>

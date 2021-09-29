@@ -12,8 +12,8 @@ class About extends React.Component {
             <div className="container">
             <div className="row">
                 <div className="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-2">
+                    <div className="row">
+                        <div className="col-sm-2">
                             <img src={logo} alt="Jeff and Rose Wilson" />
                         </div>
                     </div>

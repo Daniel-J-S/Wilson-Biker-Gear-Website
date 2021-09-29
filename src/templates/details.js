@@ -45,7 +45,7 @@ const ProductDetails = data => {
           <div className="row buynowinner">
             <div className="col-sm-2">
               <span className="price">Price: ${data.data.contentfulProduct.price}</span>
-              <select value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+              <select style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 {data.data.contentfulProduct.sizes.map((s, i) => (
                   <option key={i} value={s.size}>{s.size}</option>
                 ))}

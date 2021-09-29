@@ -255,7 +255,7 @@ ul.latest-blog li .inner:before{content:"";background:#0000004f;position:absolut
 ul.latest-blog li h2 a{color:#fff;}
 ul.latest-blog li .inner a{position:absolute;left:0;right:0;top:0;bottom:0;z-index:5;}
 .site-Banner .gatsby-image-wrapper{height:500px;}
-.Contact-us{margin:40px 0; min-height:75vh;}
+.Contact-us{display: flex; align-items: center; justify-content: center; margin:40px 0; min-height:75vh;}
 .Contact-us form{}
 .Contact-us form input{width:100%;height:40px;}
 .Contact-us form textarea{width:100%;height:100px;}
@@ -289,8 +289,11 @@ a.header-logo img{margin:0;width:220px;}
 .site-footer .menu-main-container ul li a{padding:0 15px}
 .site-footer .menu-main-container ul li .sub-menu{display:none}
 .site-footer  ul{margin-bottom:0;}
-.site-About, .Contact-us {min-height: 75vh; padding: 2.5rem 5rem !important; max-width: 55rem; margin: auto;}
+.site-About, .Contact-us {min-height: 75vh; padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
+.details-page {padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
 footer.site-footer ul{margin:0;}
+
+
 
 /* Media Css */
 @media (max-width:991px){
@@ -333,6 +336,7 @@ footer.site-footer ul{margin:0;}
   ul.blog-list li .post-item .post-thumbnail .gatsby-image-wrapper{height:200px;}
   .blogs-page .post-thumbnail .gatsby-image-wrapper{height:auto;}
   .snipcart-add-item{padding:10px 10px;}
+  div.site-About, .Contact-us, .details-page { padding: 1rem !important; width: 100%;}
 }
 
 /* Media Css */

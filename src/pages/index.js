@@ -1,13 +1,15 @@
-import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Banner from "../components/banner"
+import React from "react";
+import { Link } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Banner from "../components/banner";
 // import LatestBlogs from "../components/latestBlog"
-import Countdown from "../components/countdown"
+import Countdown from "../components/countdown";
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from "gatsby";
+
+import { productFilter } from '../utils/product-filter';
 
 
 // function ComingSoon() {
@@ -33,7 +35,7 @@ class IndexPost extends React.Component {
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.data.allContentfulProduct.edges.map(items => (
+          {data.map(items => (
             <Link className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
             <div key={items.node.id}>
               <div className="details_List">
@@ -66,10 +68,6 @@ class IndexPost extends React.Component {
                       >
                         <i className="fas fa-shopping-bag" />Add to Cart
                     </a> */}
-                    <Link state={{ 
-                      itemName: items.node.name,
-                      itemPrice: items.node.price
-                      }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                     </div>
                   </div>
                 </div>
@@ -83,20 +81,37 @@ class IndexPost extends React.Component {
   }
 }
 
-const IndexPage = data => (
-  <Layout>
-    <SEO title="Home" keywords={[`biker gear`, `vests`, `sewing`, `jackets`]} />
-    <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
-    {/* <LatestBlogs data={data.data.allContentfulBlogs} /> */}
-    <div className="container">
-      <div className="text-center"><h2 className="with-underline">Our Latest Selections</h2></div>
-      <IndexPost data={data}></IndexPost>
-    </div>
-    <Countdown data={data.data.contentfulDealCountDown} />
-  </Layout>
-)
+const IndexPage = data => {
+  const mens = productFilter(data.data.allContentfulProduct.edges, 'Mens');
+  const ladies = productFilter(data.data.allContentfulProduct.edges, 'Ladies');
+  console.log(mens, ladies);
+  return (
+    <Layout>
+      <SEO title="Home" keywords={[`biker gear`, `vests`, `sewing`, `jackets`]} />
+      <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
+      <div className="container">
+        <div className="text-center"><h2 className="with-underline">Best Sellers</h2></div>
+      </div>
+      {
+        ladies.length > 0 &&
+        <div className="container mt-5 mb-5">
+          <div><h3>Ladies</h3></div>
+          <IndexPost data={ladies}></IndexPost>
+        </div>
+      }
+      {
+        mens.length > 0 &&
+        <div className="container mt-5 mb-5">
+          <div><h3>Mens</h3></div>
+          <IndexPost data={mens}></IndexPost>
+        </div>
+      }
+      <Countdown data={data.data.contentfulDealCountDown} />
+    </Layout>
+  );
+}
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query AboutQuery {
@@ -107,6 +122,9 @@ export const query = graphql`
           name
           slug
           rating
+          category {
+            name
+          }
           image {
             fluid(maxWidth: 1000) {
               base64
