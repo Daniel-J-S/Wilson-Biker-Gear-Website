@@ -36,7 +36,7 @@ class IndexPost extends React.Component {
       <React.Fragment>
         <div className="row product-main">
           {data.map(items => (
-            <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
+            <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`${items.node.slug}`}>
             <div>
               <div className="details_List">
                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
@@ -95,14 +95,22 @@ const IndexPage = data => {
       {
         ladies.length > 0 &&
         <div className="container mt-5 mb-5">
-          <div><h3>Ladies</h3></div>
+          <div>
+            <Link className="text-dark" to="/ladies">
+              <h3>Ladies</h3>
+            </Link>
+          </div>
           <IndexPost data={ladies}></IndexPost>
         </div>
       }
       {
         mens.length > 0 &&
         <div className="container mt-5 mb-5">
-          <div><h3>Mens</h3></div>
+          <div>
+            <Link className="text-dark" to="/mens">
+              <h3>Mens</h3>
+            </Link>
+          </div>
           <IndexPost data={mens}></IndexPost>
         </div>
       }
