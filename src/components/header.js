@@ -1,9 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import "../css/font-awesome.css"
-import "bootstrap/dist/css/bootstrap.css"
-import "../css/style.css"
 import logo from "../images/logo.png"
 
 
