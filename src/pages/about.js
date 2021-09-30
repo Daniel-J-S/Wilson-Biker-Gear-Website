@@ -1,10 +1,12 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import logo from "../images/the-wilsons.jpeg"
+import React from 'react';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import logo from '../images/the-wilsons.jpeg';
+import { graphql } from 'gatsby';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-class About extends React.Component {
-    render() {
+function About({ data }) {
+
         return ( 
         <Layout >
             <SEO title="About" keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} />
@@ -13,18 +15,28 @@ class About extends React.Component {
             <div className="row">
                 <div className="col-sm-12">
                     <div className="row">
-                        <div className="col-sm-2">
+                        <div className="col-sm-2 col-md-4 mb-3 mt-5">
                             <img src={logo} alt="Jeff and Rose Wilson" />
                         </div>
                     </div>
-                    <h2>About Us</h2>
-                    <p>40 years experience in leather goods, sewing and passing on the best prices to customers.  <br /><br /> Looking for Biker Gear, accessories or just need your patches sewed on? <br />We specialize in exceptional quality and precision to ensure they are done right the first time.</p>
+                    <h1>{data.contentfulAboutUsPage.title}</h1>
+                    {documentToReactComponents(data.contentfulAboutUsPage.body.json)}
                     </div>
                 </div>
             </div> 
         </div> 
         </Layout >
-        )
-    }
+    );
 }
-export default About
+
+export const query = graphql`
+query AboutPageQuery {
+    contentfulAboutUsPage(title: {eq: "About Us"}) {
+      body {
+        json
+      }
+      title
+    }
+  }
+`;
+export default About;
