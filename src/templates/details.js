@@ -43,7 +43,7 @@ const ProductDetails = data => {
             value={data.data.contentfulProduct.rating}
           />
           <div className="row buynowinner">
-            <div className="col-sm-2">
+            <div className="col-sm-4 col-md-3">
               <span className="price">Price: ${data.data.contentfulProduct.price}</span>
               <select style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 {data.data.contentfulProduct.sizes.map((s, i) => (
@@ -51,7 +51,7 @@ const ProductDetails = data => {
                 ))}
               </select>
             </div>
-            <div className="col-sm-10 text-left">
+            <div className="col-sm-8 col-md-9 text-left">
               {/* <a
                 href="#"
                 className="Product snipcart-add-item"
@@ -66,7 +66,8 @@ const ProductDetails = data => {
               </a> */}
               <Link state={{ 
                 itemName: data.data.contentfulProduct.name,
-                itemPrice: data.data.contentfulProduct.price
+                itemPrice: data.data.contentfulProduct.price,
+                itemSize: selectState.value
               }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
             </div>
           </div>
