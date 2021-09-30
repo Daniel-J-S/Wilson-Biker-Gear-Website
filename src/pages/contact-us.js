@@ -18,6 +18,7 @@ function Contact ({ location }) {
             <SEO title="Contact Us" keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} />
             <div className="Contact-us">
                 <div className="container">
+                    <h1 className="mb-5">Contact Us</h1>
                     <Form message={getItemDetails()} />
                 </div>
             </div>
