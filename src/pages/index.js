@@ -1,15 +1,16 @@
-import React from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Banner from "../components/banner";
-// import LatestBlogs from "../components/latestBlog"
-import Countdown from "../components/countdown";
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Banner from '../components/banner';
+// import LatestBlogs from '../components/latestBlog'
+import Countdown from '../components/countdown';
 import StarRatingComponent from 'react-star-rating-component';
-import { graphql } from "gatsby";
-
+import { graphql } from 'gatsby';
 import { productFilter } from '../utils/product-filter';
+import { formatPrice } from '../utils/format-price';
+
 
 
 function ComingSoon() {
@@ -29,9 +30,7 @@ function ComingSoon() {
 
 export default ComingSoon
 
-// class IndexPost extends React.Component {
-//   render() {
-//     const { data } = this.props;
+// function IndexPost ({ data }) {
 //     return (
 //       <React.Fragment>
 //         <div className="row product-main">
@@ -40,9 +39,7 @@ export default ComingSoon
 //             <div>
 //               <div className="details_List">
 //                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
-
-//                 <div className="details_inner">
-
+//                  <div className="details_inner">
 //                   <h2>
 //                     {items.node.name}
 //                   </h2>
@@ -53,21 +50,8 @@ export default ComingSoon
 //                   />
 //                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>
 //                   <div className="row">
-//                     <div className="col-sm-4 align-self-center">
-//                       <span className="price">${items.node.price}</span>
-//                     </div>
-//                     <div className="col-sm-8 text-right align-self-center">
-//                       {/* <a
-//                         href="#"
-//                         className="Product snipcart-add-item"
-//                         data-item-id={items.node.slug}
-//                         data-item-price={items.node.price}
-//                         data-item-image={items.node.image === null ? "" : items.node.image.fluid.src}
-//                         data-item-name={items.node.name}
-//                         data-item-url={`/`}
-//                       >
-//                         <i className="fas fa-shopping-bag" />Add to Cart
-//                     </a> */}
+//                     <div className="col-sm-7 align-self-center">
+//                       {formatPrice(items.node)}
 //                     </div>
 //                   </div>
 //                 </div>
@@ -78,7 +62,6 @@ export default ComingSoon
 //         </div>
 //       </React.Fragment>
 //     );
-//   }
 // }
 
 // const IndexPage = data => {
@@ -129,6 +112,7 @@ export default ComingSoon
 //           name
 //           slug
 //           rating
+//           discount
 //           category {
 //             name
 //           }
