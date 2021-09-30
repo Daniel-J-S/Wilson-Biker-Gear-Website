@@ -257,7 +257,7 @@ ul.latest-blog li .inner a{position:absolute;left:0;right:0;top:0;bottom:0;z-ind
 .site-Banner .gatsby-image-wrapper{height:500px;}
 .Contact-us{display: flex; align-items: center; justify-content: center; margin:40px 0; min-height:75vh;}
 .Contact-us form{}
-.Contact-us form input{width:100%;height:40px;}
+.Contact-us form input, textarea {width:100%;height:40px; font-family: Helvetica, Arial, sans-serif; font-size: 1.1rem; padding: .3rem;}
 .Contact-us form textarea{width:100%;height:100px;}
 .Contact-us form label{width:100%;}
 .Contact-us form>div{margin-bottom:30px;}
@@ -337,6 +337,7 @@ footer.site-footer ul{margin:0;}
   .blogs-page .post-thumbnail .gatsby-image-wrapper{height:auto;}
   .snipcart-add-item{padding:10px 10px;}
   div.site-About, .Contact-us, .details-page { padding: 1rem !important; width: 100%;}
+  .details-page select { display: block; margin: 1.7rem 0 !important;}
 }
 
 /* Media Css */
