@@ -84,7 +84,6 @@ class IndexPost extends React.Component {
 const IndexPage = data => {
   const mens = productFilter(data.data.allContentfulProduct.edges, 'Mens');
   const ladies = productFilter(data.data.allContentfulProduct.edges, 'Ladies');
-  console.log(mens, ladies);
   return (
     <Layout>
       <SEO title="Home" keywords={[`biker gear`, `vests`, `sewing`, `jackets`]} />
