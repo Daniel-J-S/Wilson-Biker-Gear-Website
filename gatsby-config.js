@@ -5,8 +5,8 @@ const { spaceId, accessToken, snipcart, websiteId } = process.env;
 
 module.exports = {
   siteMetadata: {
-    title: `Wilson Biker Supply`,
-    description: `Business Website For Wilson Biker Supply`,
+    title: `Wilson Biker Gear`,
+    description: `Business Website For Wilson Biker Gear`,
     author: `DanielJS`,
   },
   plugins: [
