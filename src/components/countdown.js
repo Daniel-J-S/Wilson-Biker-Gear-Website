@@ -13,7 +13,7 @@ export default class Countdown extends Component {
             <h2 className="with-underline">{data.title}</h2>
             <span className="date">Last Date :</span>
             <span className="date"><strong><i className="fas fa-clock"></i>{data.date}</strong></span>
-            <Link to="/store">Shop Now</Link>
+            <Link to="/sale-items">Shop Now</Link>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { formatPrice } from "../utils/format-price";
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
@@ -44,15 +45,26 @@ const ProductDetails = data => {
           />
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
-              <span className="price">Price: ${data.data.contentfulProduct.price}</span>
+              <span className="price">{formatPrice(data.data.contentfulProduct)}</span>
               <select style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 {data.data.contentfulProduct.sizes.map((s, i) => (
                   <option key={i} value={s.size}>{s.size}</option>
                 ))}
               </select>
             </div>
-            <div className="col-sm-8 col-md-9 text-left">
-              {/* <a
+            <div className="col-sm-8 col-md-9">
+              <span className="align-baseline">
+
+              <Link state={{ 
+                itemName: data.data.contentfulProduct.name,
+                itemPrice: data.data.contentfulProduct.discount ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) : data.data.contentfulProduct.price,
+                itemSize: selectState.value
+              }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
+              </span>
+              </div>
+              {/* 
+              <div className="col-sm-8 col-md-9 text-left">
+                <a
                 href="#"
                 className="Product snipcart-add-item"
                 data-item-id={data.data.contentfulProduct.slug}
@@ -63,13 +75,9 @@ const ProductDetails = data => {
               >
                 <i className="fas fa-tags" />
                 Buy Now
-              </a> */}
-              <Link state={{ 
-                itemName: data.data.contentfulProduct.name,
-                itemPrice: data.data.contentfulProduct.price,
-                itemSize: selectState.value
-              }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
+              </a> 
             </div>
+              */}
           </div>
           <div
             dangerouslySetInnerHTML={{
@@ -90,6 +98,7 @@ export const query = graphql`
       id
       name
       slug
+      discount
       sizes {
         size
       }

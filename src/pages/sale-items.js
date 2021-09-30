@@ -36,9 +36,9 @@ class IndexPost extends React.Component {
 
     const { data } = this.props;
     const { NoOfPost } = this.state;
-
     return (
       <React.Fragment>
+        <h1 className="mt-5 mb-5">Sale Items</h1>
         <div className="row product-main" onScroll={this.onScrollEvent}>
           {data.data.allContentfulProduct.edges.slice(0, NoOfPost).map(items => (
             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4"  to={`${items.node.slug}`}>
@@ -77,9 +77,6 @@ const IndexPage = data => (
   <Layout>
     <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
     <div className="container store-page">
-      <div className="text-center mt-5">
-          <h1 className="with-underline">Ladies Apparel</h1>
-      </div>
       <IndexPost data={data}></IndexPost>
     </div>
   </Layout>
@@ -88,8 +85,8 @@ const IndexPage = data => (
 export default IndexPage;
 
 export const query = graphql`
-  query LadiesQuery {
-    allContentfulProduct (filter: {category: {name: {eq: "Ladies"}}}){
+  query SaleItemsQuery {
+    allContentfulProduct(filter: {discount: {gt: 0}}) {
       edges{
         node{
           id
