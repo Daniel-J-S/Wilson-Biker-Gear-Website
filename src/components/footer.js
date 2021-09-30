@@ -38,6 +38,9 @@ class Footer extends Component {
                             <div className="site-info">
                                <small>©{new Date().getFullYear()} Wilson Biker Gear. All rights reserved.</small>
                             </div>
+                            <div className="site-info">
+                               <small>Created By <a href="https://danieljs.io" target="_blank">DanielJS</a></small>
+                            </div>
                         </div>
                     </div>
                 </div>
