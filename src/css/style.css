@@ -289,6 +289,7 @@ a.header-logo img{margin:0;width:220px;}
 .site-footer .menu-main-container ul li a{padding:0 15px}
 .site-footer .menu-main-container ul li .sub-menu{display:none}
 .site-footer  ul{margin-bottom:0;}
+.site-info ul {list-style: none !important;}
 .site-About, .Contact-us {min-height: 75vh; padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
 .details-page {padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
 footer.site-footer ul{margin:0;}
