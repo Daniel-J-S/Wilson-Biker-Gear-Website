@@ -40,8 +40,8 @@ class IndexPost extends React.Component {
       <React.Fragment>
         <div className="row product-main" onScroll={this.onScrollEvent}>
           {data.data.allContentfulProduct.edges.slice(0, NoOfPost).map(items => (
-            <Link className="Catalogue__item col-sm-12 col-md-6 col-lg-4"  to={`${items.node.slug}`}>
-            <div key={items.node.id}>
+            <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4"  to={`${items.node.slug}`}>
+            <div>
               <div className="details_List">
                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fixed} />}
 

@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import Form from "../components/form"
 import SEO from "../components/seo"
 
 function Contact ({ location }) {
@@ -11,30 +12,13 @@ function Contact ({ location }) {
             return false
         }
     }
+
     return (
         <Layout>
             <SEO title="Contact Us" keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} />
             <div className="Contact-us">
                 <div className="container">
-                    {/* To make form work, use your own formspree credentials in action="" */}
-                    <form action="https://formspree.io/f/mqkwnyao" method="POST" name="contact">
-                        <div>
-                            <label>Your name
-                            <input type="text" name="name" required /></label>
-                        </div>
-                        <div>
-                            <label>Your Email: 
-                            <input type="email" name="email" required /></label>
-                        </div>
-                        <div>
-                            <label>Message: 
-                            <textarea defaultValue={getItemDetails() || ""} name="message" required>
-                            </textarea></label>
-                        </div>
-                        <div>
-                            <button type="submit" required>Send</button>
-                        </div>
-                    </form>
+                    <Form message={getItemDetails()} />
                 </div>
             </div>
         </Layout>
