@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Banner from '../components/banner';
-// import LatestBlogs from '../components/latestBlog'
 import Countdown from '../components/countdown';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
@@ -56,19 +54,6 @@ function IndexPost ({ data }) {
                     <div className="col-sm-7 align-self-center">
                       {formatPrice(items.node)}
                     </div>
-                     {/*<div className="col-sm-6 text-right align-self-center">
-                      <a
-                        href="#"
-                        className="Product snipcart-add-item"
-                        data-item-id={items.node.slug}
-                        data-item-price={items.node.price}
-                        data-item-image={items.node.image === null ? "" : items.node.image.fluid.src}
-                        data-item-name={items.node.name}
-                        data-item-url={`/`}
-                      >
-                        <i className="fas fa-shopping-bag" />Add to Cart
-                    </a> 
-                    </div>*/}
                   </div>
                 </div>
               </div>
@@ -84,7 +69,7 @@ const IndexPage = data => {
   const mens = productFilter(data.data.allContentfulProduct.edges, 'Mens');
   const ladies = productFilter(data.data.allContentfulProduct.edges, 'Ladies');
   return (
-    <Layout>
+    <>
       <SEO title="Home" keywords={[`biker gear`, `vests`, `sewing`, `jackets`]} />
       <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
       <div className="container">
@@ -113,7 +98,7 @@ const IndexPage = data => {
         </div>
       }
       <Countdown data={data.data.contentfulDealCountDown} />
-    </Layout>
+    </>
   );
 }
 
@@ -207,4 +192,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

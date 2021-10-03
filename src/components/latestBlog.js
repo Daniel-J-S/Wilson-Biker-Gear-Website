@@ -1,12 +1,10 @@
-import React, { Component } from "react";
-import Img from "gatsby-image"
-import { Link } from "gatsby"
+import React, { Component } from 'react';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 export default class LatestBlogs extends Component {
     render() {
-
         const { data } = this.props;
-
         return (
             <div className="container">
                 <div className="text-center"><h2 className="with-underline">Latest Blogs</h2></div>
@@ -24,4 +22,4 @@ export default class LatestBlogs extends Component {
             </div>
         );
     }
-}
+};

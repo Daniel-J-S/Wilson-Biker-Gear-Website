@@ -1,9 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { graphql } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import SEO from '../components/seo';
+import { graphql } from 'gatsby';
 
 class BlogsPost extends React.Component {
   constructor(props) {
@@ -71,15 +70,15 @@ class BlogsPost extends React.Component {
 
 const Blogs = data => (
 
-  <Layout>
+  <>
     <SEO title="Blogs" keywords={[`sewing`, `vests`, `jackets`]} />
     <div className="container blog-page">
       <BlogsPost data={data} />
     </div>
-  </Layout>
+  </>
 )
 
-export default Blogs
+export default Blogs;
 
 export const query = graphql`
   query BlogsQuery {
@@ -124,7 +123,7 @@ export const query = graphql`
         }
       }
   }
-`
+`;
 
 
 

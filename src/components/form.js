@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { navigate } from 'gatsby'
+import { navigate } from 'gatsby';
 
 function Form({ message }) {
     const [state, setState] = useState({

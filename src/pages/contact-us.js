@@ -1,7 +1,6 @@
-import React from "react"
-import Layout from "../components/layout"
-import Form from "../components/form"
-import SEO from "../components/seo"
+import React from 'react';
+import Form from '../components/form';
+import SEO from '../components/seo';
 
 function Contact ({ location }) {
     function getItemDetails() {
@@ -14,7 +13,7 @@ function Contact ({ location }) {
     }
 
     return (
-        <Layout>
+        <>
             <SEO title="Contact Us" keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} />
             <div className="Contact-us">
                 <div className="container">
@@ -22,9 +21,9 @@ function Contact ({ location }) {
                     <Form message={getItemDetails()} />
                 </div>
             </div>
-        </Layout>
+        </>
     )
 }
 
 
-export default Contact
+export default Contact;
