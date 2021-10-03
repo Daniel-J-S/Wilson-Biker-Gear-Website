@@ -36,16 +36,12 @@ const ResponsiveNav = () => {
     setNavVisibility(!isNavVisible);
   };
 
-  const delayToggle = () => {
-    setTimeout(toggleNav, 250)
-  }
-
   const links = (
       <>
-        <Link onClick={delayToggle} className="nav-link" to="/">Home</Link>
-        <Link onClick={delayToggle} className="nav-link" to="/store">Store</Link>
-        <Link onClick={delayToggle} className="nav-link" to="/about">About Us</Link>
-        <Link onClick={delayToggle} className="nav-link" to="/contact-us">Contact</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/">Home</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/store">Store</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/about">About Us</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/contact-us">Contact</Link>
       </>
   );
 
