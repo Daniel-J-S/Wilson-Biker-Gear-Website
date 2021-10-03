@@ -67,7 +67,9 @@ const ResponsiveNav = () => {
         </nav>
       }
       <button onClick={toggleNav} className="burger">
-      &#9776;
+        <div className={isNavVisible ? 'burger-animate': 'fixed'} />
+        <div className={isNavVisible ? 'burger-animate': 'fixed'} />
+        <div className={isNavVisible ? 'burger-animate': 'fixed'} />
       </button>
     </div>
   );

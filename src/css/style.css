@@ -471,6 +471,40 @@ p {
     color: #ffffff;
     display: inline;
   }
+
+  .burger:focus {
+    outline: none;
+  }
+
+
+  .burger div {
+    width: 2rem;
+    height: 0.25rem;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    transform-origin: .650rem;
+    transform: rotate(0);
+  }
+
+  div.burger-animate:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  div.burger-animate:nth-child(2) {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  
+  div.burger-animate:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  div.fixed {
+    margin-top: .5rem;
+    opacity: 1
+  }
+
 }
 
 .navAnimation-enter {
