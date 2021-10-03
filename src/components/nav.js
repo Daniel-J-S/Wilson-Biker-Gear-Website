@@ -38,10 +38,10 @@ const ResponsiveNav = () => {
 
   const links = (
       <>
-        <Link className="nav-link" to="/">Home</Link>
-        <Link className="nav-link" to="/store">Store</Link>
-        <Link className="nav-link" to="/about">About Us</Link>
-        <Link className="nav-link" to="/contact-us">Contact</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/">Home</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/store">Store</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/about">About Us</Link>
+        <Link onClick={toggleNav} className="nav-link" to="/contact-us">Contact</Link>
       </>
   );
 

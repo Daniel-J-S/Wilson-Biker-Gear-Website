@@ -395,10 +395,10 @@ p {
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 700;
-  transition: 0.5s;
+  transition: 0.10s;
   text-decoration: none;
   text-transform: uppercase;
-  animation: fadeIn 1800ms linear forwards;
+  animation: fadeIn 100ms linear forwards;
 }
 .nav a:hover {
   transform: scale(1.1);
@@ -479,7 +479,7 @@ p {
 .navAnimation-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: opacity 1300ms, transform 350ms;
+  transition: opacity 350ms, transform 250ms;
 }
 .navAnimation-exit {
   opacity: 1;
@@ -488,5 +488,5 @@ p {
 .navAnimation-exit-active {
   opacity: 0;
   transform: translateY(-100%);
-  transition: opacity 20ms, transform 350ms;
+  transition: opacity 250ms, transform 200ms;
 }
