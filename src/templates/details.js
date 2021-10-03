@@ -52,32 +52,32 @@ const ProductDetails = data => {
                 ))}
               </select>
             </div>
-            <div className="col-sm-8 col-md-9">
-              <span className="align-baseline">
 
-              <Link state={{ 
-                itemName: data.data.contentfulProduct.name,
-                itemPrice: data.data.contentfulProduct.discount ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) : data.data.contentfulProduct.price,
-                itemSize: selectState.value
-              }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
-              </span>
-              </div>
-              {/* 
-              <div className="col-sm-8 col-md-9 text-left">
+              
+              <div className="col-sm-12 col-md-12 text-left">
+                <div className="row container mb-3">
                 <a
-                href="#"
-                className="Product snipcart-add-item"
-                data-item-id={data.data.contentfulProduct.slug}
-                data-item-price={data.data.contentfulProduct.price}
-                data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
-                data-item-name={data.data.contentfulProduct.name}
-                data-item-url={`/`}
-              >
-                <i className="fas fa-tags" />
-                Buy Now
-              </a> 
+                  href="#"
+                  className="Product snipcart-add-item"
+                  data-item-id={data.data.contentfulProduct.slug}
+                  data-item-price={data.data.contentfulProduct.price}
+                  data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
+                  data-item-name={data.data.contentfulProduct.name}
+                  data-item-url={`/`}
+                  >
+                  <i className="fas fa-tags" />
+                  Add to Cart
+                </a> 
+                </div>
+                <div className="row container mt-3">
+                  <Link state={{ 
+                    itemName: data.data.contentfulProduct.name,
+                    itemPrice: data.data.contentfulProduct.discount ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) : data.data.contentfulProduct.price,
+                    itemSize: selectState.value
+                  }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
+                </div>
             </div>
-              */}
+             
           </div>
           <div
             dangerouslySetInnerHTML={{

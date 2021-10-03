@@ -31,20 +31,12 @@ const Header = ({ siteTitle }) => (
                 <Link className="nav-link" to="/contact-us">Contact</Link>
               </li>
             </ul>
-             {/*<div className="header-cart">
+             <div className="header-cart">
               <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
-                <i className="fas fa-cart-plus"></i>
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'dodgerblue', padding: '.8rem', fontWeight: 600, height: '1rem', width: '1rem', fontSize: '1.1rem', fontFamily: 'Helvetica', borderRadius: '50%'}} class="snipcart-items-count"></div>
+                <i className="fas fa-sm fa-shopping-bag" />
               </Link>
-              <button class="snipcart-add-item"
-                data-item-id="starry-night"
-                data-item-price="79.99"
-                data-item-url="/paintings/starry-night"
-                data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-                data-item-image="/assets/images/starry-night.jpg"
-                data-item-name="The Starry Night">
-                Add to cart
-              </button> 
-            </div>*/}
+            </div>
           </nav>
         </div>
       </div>
