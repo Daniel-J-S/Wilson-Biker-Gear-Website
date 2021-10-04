@@ -454,10 +454,9 @@ p {
   .header-cart {
     display: flex;
     align-self: center;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%; 
   }
-
 
   .nav a {
       position: relative;
@@ -547,3 +546,8 @@ p {
   max-height: 0px;
   opacity: 0;
 }
+
+.snipcart-items-count:empty {
+    opacity: 0;
+}
+
