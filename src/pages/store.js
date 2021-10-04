@@ -1,11 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import SEO from '../components/seo';
 import StarRatingComponent from 'react-star-rating-component';
-import { graphql } from "gatsby";
-import { formatPrice } from "../utils/format-price"
+import { graphql } from 'gatsby';
+import { formatPrice } from '../utils/format-price'
 
 class IndexPost extends React.Component {
     state = {
@@ -33,10 +32,8 @@ class IndexPost extends React.Component {
   };
 
   render() {
-
     const { data } = this.props;
     const { NoOfPost } = this.state;
-
     return (
       <React.Fragment>
         <div className="row product-main" onScroll={this.onScrollEvent}>
@@ -74,15 +71,15 @@ class IndexPost extends React.Component {
 
 const IndexPage = data => (
 
-  <Layout>
+  <>
     <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
     <div className="container store-page">
       <IndexPost data={data}></IndexPost>
     </div>
-  </Layout>
-)
+  </>
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query StoreQuery {
@@ -107,9 +104,8 @@ export const query = graphql`
             childMarkdownRemark {
               excerpt(pruneLength: 140)
             }
-          }
         }
       }
     }
   }
-`
+}`;

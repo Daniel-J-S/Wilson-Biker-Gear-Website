@@ -12,6 +12,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet-async`,
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-crisp-chat',
       options: {
         websiteId,

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Img from "gatsby-image"
-import { Link } from "gatsby"
+import React, { Component } from 'react';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 export default class Countdown extends Component {
   render() {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
@@ -33,7 +32,6 @@ class IndexPost extends React.Component {
   };
 
   render() {
-
     const { data } = this.props;
     const { NoOfPost } = this.state;
     return (
@@ -74,12 +72,12 @@ class IndexPost extends React.Component {
 
 const IndexPage = data => (
 
-  <Layout>
+  <>
     <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
     <div className="container store-page">
       <IndexPost data={data}></IndexPost>
     </div>
-  </Layout>
+  </>
 );
 
 export default IndexPage;
@@ -107,9 +105,8 @@ export const query = graphql`
             childMarkdownRemark {
               excerpt(pruneLength: 140)
             }
-          }
         }
       }
     }
   }
-`
+}`;

@@ -1,15 +1,14 @@
-import React from "react"
-import Img from "gatsby-image"
-import { DiscussionEmbed } from "disqus-react";
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { graphql } from "gatsby";
+import React from 'react'
+import Img from 'gatsby-image'
+import { DiscussionEmbed } from 'disqus-react';
+import SEO from '../components/seo'
+import { graphql } from 'gatsby';
 
-const disqusShortname = "shopper";
+const disqusShortname = 'wilsonbikergear';
 
 const BlogDetails = data => (
-    < Layout >
-        <SEO title={data.data.contentfulBlogs.title} keywords={[`gatsby`, `ecommerce`, `react`, `contentFul`, `Snipcart`]} />
+    <>
+        <SEO title={data.data.contentfulBlogs.title} keywords={[`vests`, `jackets`, `biker gear`, `mens`, `womens`]} />
         <div className="blogs-page">
             <div className="post-thumbnail">
                 <Img sizes={data.data.contentfulBlogs.featureImage.fluid} />
@@ -41,10 +40,10 @@ const BlogDetails = data => (
                 />
             </div>
         </div>
-    </Layout >
-)
+    </>
+);
 
-export default BlogDetails
+export default BlogDetails;
 
 export const query = graphql`
   query BlogDetailsQuery($slug: String!) {
@@ -82,5 +81,4 @@ export const query = graphql`
                   }
         }
     }
-}
-`
+}`;

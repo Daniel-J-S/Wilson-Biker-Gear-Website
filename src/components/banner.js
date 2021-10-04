@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import Img from "gatsby-image";
-import { Link } from "gatsby";
+import React, { Component } from 'react';
+import Slider from 'react-slick';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 var settings = {
   dots: true,

@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 import logo from '../images/the-wilsons.jpeg';
 import { graphql } from 'gatsby';
@@ -8,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 function About({ data }) {
 
         return ( 
-        <Layout >
+        <>
             <SEO title="About" keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} />
             <div className="site-About">
             <div className="container">
@@ -25,7 +24,7 @@ function About({ data }) {
                 </div>
             </div> 
         </div> 
-        </Layout >
+        </>
     );
 }
 

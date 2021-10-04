@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StarRatingComponent from 'react-star-rating-component';
-import { graphql, Link } from "gatsby";
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { formatPrice } from "../utils/format-price";
+import { graphql, Link } from 'gatsby';
+import SEO from '../components/seo';
+import { formatPrice } from '../utils/format-price';
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
@@ -16,7 +15,7 @@ const ProductDetails = data => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={data.data.contentfulProduct.name} keywords={[`gatsby`, `application`, `react`]} />
       <div className="container details-page">
         <div className="product-details">
@@ -86,11 +85,11 @@ const ProductDetails = data => {
           />
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
 
-export default ProductDetails
+export default ProductDetails;
 
 export const query = graphql`
   query ProductDetailsQuery($slug: String!) {
@@ -124,5 +123,4 @@ export const query = graphql`
     }
     rating
   }
-}
-`
+}`;
