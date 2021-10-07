@@ -1,5 +1,4 @@
-var dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
 const { spaceId, accessToken, snipcart, websiteId } = process.env;
 

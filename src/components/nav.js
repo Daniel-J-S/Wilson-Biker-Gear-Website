@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
@@ -11,18 +11,34 @@ const ResponsiveNav = () => {
   
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(true);
-  
+  const [showCartItems, setShowCartItems] = useState(false);
+
+  const cartItemsRef = useRef();
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 1065px)');
-    
     mediaQuery.addEventListener('change', handleMediaQueryChange);
-
     handleMediaQueryChange(mediaQuery);
 
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
+    
   }, []);
+
+  useEffect(() => {
+    console.log('innerText', cartItemsRef.current.innerText)
+    
+    if(cartItemsRef.current.innerText === '0') {
+      handleSetShowCartItems(false);
+    } else {
+      handleSetShowCartItems(true);
+    }
+  })
+
+  const handleSetShowCartItems = setting => {
+    setShowCartItems(setting);
+  }
 
   const handleMediaQueryChange = mediaQuery => {
     if (mediaQuery.matches) {
@@ -35,6 +51,7 @@ const ResponsiveNav = () => {
   const toggleNav = () => {
     setNavVisibility(!isNavVisible);
   };
+  
 
   const links = (
       <>
@@ -68,7 +85,7 @@ const ResponsiveNav = () => {
       }
       <div className="header-cart">
         <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'dodgerblue', padding: '.8rem', fontWeight: 600, height: '1rem', width: '1rem', fontSize: '1.1rem', fontFamily: 'Helvetica', borderRadius: '50%'}} class="snipcart-items-count"></div>
+          <div style={{visibility: showCartItems ? 'visible' : 'hidden'}} ref={cartItemsRef} className="snipcart-items-count" />
           <i className="fas fa-sm fa-shopping-bag" />
         </Link>
       </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
+import tiktokLogo from '../static/tiktok-brands.svg';
+
 class Footer extends Component {
     render() {
         return (
@@ -18,9 +20,21 @@ class Footer extends Component {
                                 </div>
                             </section>
                         </div>
-                        <div className="footer-bottom social-right-menu mt-5">
+                        <div className="footer-bottom social-right-menu mt-3">
                             <div className="site-info">
-                                <address>
+                                <ul className="social-links">
+                                    <li>
+                                        <a className="social-icon" href="https://www.facebook.com/JDUBORIGINAL/" target="_blank" rel="noopener noreferrer">
+                                            <i className="fab fa-2x fa-facebook" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="social-icon" href="https://www.tiktok.com/@wilsonbikergear" target="_blank" rel="noopener noreferrer">                                            
+                                            <img className="tiktok" src={tiktokLogo} alt="tic toc" />
+                                        </a>
+                                    </li>
+                                </ul>
+                                <address className="mt-3">
                                     3016 Alta Mere Dr<br />
                                     Fort Worth, TX 76116<br />
                                     <a href="tel:8173860631">(817) 386-0631</a>
@@ -37,7 +51,7 @@ class Footer extends Component {
                                <small>©{new Date().getFullYear()} Wilson Biker Gear. All rights reserved.</small>
                             </div>
                             <div className="site-info">
-                               <small>Created By <a href="https://danieljs.io" target="_blank" rel="noopener noreferrer">DanielJS</a></small>
+                               <small>Custom Built By <a href="https://danieljs.io" target="_blank" rel="noopener noreferrer">DanielJS</a></small>
                             </div>
                         </div>
                     </div>
