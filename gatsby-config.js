@@ -11,14 +11,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet-async`,
     {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Arbutus', 'Roboto']
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout.js`),
