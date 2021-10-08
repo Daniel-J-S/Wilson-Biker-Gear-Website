@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 
@@ -11,9 +11,7 @@ const ResponsiveNav = () => {
   
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(true);
-  const [showCartItems, setShowCartItems] = useState(false);
 
-  const cartItemsRef = useRef();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 1065px)');
@@ -26,19 +24,6 @@ const ResponsiveNav = () => {
     
   }, []);
 
-  useEffect(() => {
-    console.log('innerText', cartItemsRef.current.innerText)
-    
-    if(cartItemsRef.current.innerText === '0') {
-      handleSetShowCartItems(false);
-    } else {
-      handleSetShowCartItems(true);
-    }
-  })
-
-  const handleSetShowCartItems = setting => {
-    setShowCartItems(setting);
-  }
 
   const handleMediaQueryChange = mediaQuery => {
     if (mediaQuery.matches) {
@@ -85,7 +70,7 @@ const ResponsiveNav = () => {
       }
       <div className="header-cart">
         <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
-          <div style={{visibility: showCartItems ? 'visible' : 'hidden'}} ref={cartItemsRef} className="snipcart-items-count" />
+          <div className="snipcart-items-count" />
           <i className="fas fa-sm fa-shopping-bag" />
         </Link>
       </div>
