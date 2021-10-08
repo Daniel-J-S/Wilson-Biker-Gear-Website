@@ -63,8 +63,8 @@ const ProductDetails = data => {
               
               <div className="col-sm-12 col-md-12 text-left">
                 <div className="row container mb-3">
-                <a
-                  href="#"
+                <button
+                  style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulProduct.slug}
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
@@ -73,10 +73,11 @@ const ProductDetails = data => {
                   data-item-custom1-options={selectState.userSelection ? selectState.value + '|' + sizes.split('|').filter(s => s !== selectState.value).join('|') : sizes}
                   data-item-name={data.data.contentfulProduct.name}
                   data-item-url={data.data.contentfulProduct.slug}
+                  disabled={!selectState.userSelection}
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
-                </a> 
+                </button> 
                 </div>
                 <div className="row container mt-3">
                   <Link state={{ 
