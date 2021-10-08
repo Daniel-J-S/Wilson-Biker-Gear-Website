@@ -71,7 +71,7 @@ if(typeof window !== "undefined") {
 
   return (
     <div className="nav-wrapper">
-      <Link to="/">
+      <Link to="/" onClick={() => toggleNav(false)}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
       <CSSTransition
@@ -91,10 +91,10 @@ if(typeof window !== "undefined") {
         </nav>
       }
       <div className="header-cart">
-        <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
+        <span className="Header__summary snipcart-summary snipcart-checkout">
           <div style={{visibility: showItemsCount ? 'visible' : 'hidden'}} ref={itemsCount} className="snipcart-items-count" />
           <i className="fas fa-sm fa-shopping-bag" />
-        </Link>
+        </span>
       </div>
       <button onClick={toggleNav} className="burger">
         <div className={isNavVisible ? 'burger-animate': 'fixed'} />
