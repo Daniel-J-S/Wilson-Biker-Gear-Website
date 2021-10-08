@@ -7,8 +7,6 @@ import logo from '../images/logo.png';
 
 
 const ResponsiveNav = () => {
-
-  
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(true);
   const [showItemsCount, setShowItemsCount] = useState(false)
@@ -23,7 +21,6 @@ const ResponsiveNav = () => {
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
-    
   }, []);
 
 
@@ -57,15 +54,15 @@ const ResponsiveNav = () => {
           setShowItemsCount(true)
         }
     });
-}
-
-if(typeof window !== "undefined") {
-  const observer = new MutationObserver(handleMutations);
-
-  if(itemsCount.current) {
-    observer.observe(itemsCount.current, { childList: true });
   }
-}
+
+  if(typeof window !== "undefined") {
+    const observer = new MutationObserver(handleMutations);
+
+    if(itemsCount.current) {
+      observer.observe(itemsCount.current, { childList: true });
+    }
+  }
   
 
 
@@ -81,7 +78,7 @@ if(typeof window !== "undefined") {
         unmountOnExit
       >
         <nav className="nav">
-            { links }
+          { links }
         </nav>
       </CSSTransition>
       {
