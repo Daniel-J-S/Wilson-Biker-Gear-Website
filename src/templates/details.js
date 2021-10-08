@@ -7,17 +7,20 @@ import { formatPrice } from '../utils/format-price';
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
-    value: "Small"
+    value: "Small",
+    userSelection: false
   });
 
   function handleChange(e) {
-    setSelectState({value: e.target.value});
+    setSelectState({value: e.target.value, userSelection: true});
   }
 
   const price = data.data.contentfulProduct.discount 
   ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) 
   : data.data.contentfulProduct.price;
 
+  const sizes = data.data.contentfulProduct.sizes.reverse().map((s, i) => s.size).join('|');
+  
   return (
     <>
       <SEO title={data.data.contentfulProduct.name} keywords={[`gatsby`, `application`, `react`]} />
@@ -50,6 +53,7 @@ const ProductDetails = data => {
             <div className="col-sm-4 col-md-3">
               <span className="price">{formatPrice(data.data.contentfulProduct)}</span>
               <select style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                <option value="Small" selected>Choose A Size</option>
                 {data.data.contentfulProduct.sizes.map((s, i) => (
                   <option key={i} value={s.size}>{s.size}</option>
                 ))}
@@ -63,10 +67,12 @@ const ProductDetails = data => {
                   href="#"
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulProduct.slug}
-                  data-item-price={price}
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
+                  data-item-price={price}
+                  data-item-custom1-name="Size"
+                  data-item-custom1-options={selectState.userSelection ? selectState.value + '|' + sizes.split('|').filter(s => s !== selectState.value).join('|') : sizes}
                   data-item-name={data.data.contentfulProduct.name}
-                  data-item-url={`/`}
+                  data-item-url={data.data.contentfulProduct.slug}
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
