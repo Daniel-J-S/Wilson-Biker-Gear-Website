@@ -71,7 +71,7 @@ if(typeof window !== "undefined") {
 
   return (
     <div className="nav-wrapper">
-      <Link to="/" onClick={() => toggleNav(false)}>
+      <Link to="/" onClick={() => setNavVisibility(false)}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
       <CSSTransition
