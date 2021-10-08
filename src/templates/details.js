@@ -7,7 +7,7 @@ import { formatPrice } from '../utils/format-price';
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
-    value: "Small",
+    value: 'Choose Size',
     userSelection: false
   });
 
@@ -52,8 +52,8 @@ const ProductDetails = data => {
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
               <span className="price">{formatPrice(data.data.contentfulProduct)}</span>
-              <select style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
-                <option value="Small" selected>Choose A Size</option>
+              <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                <option value="Choose Size">Choose Size</option>
                 {data.data.contentfulProduct.sizes.map((s, i) => (
                   <option key={i} value={s.size}>{s.size}</option>
                 ))}
