@@ -14,6 +14,10 @@ const ProductDetails = data => {
     setSelectState({value: e.target.value});
   }
 
+  const price = data.data.contentfulProduct.discount 
+  ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) 
+  : data.data.contentfulProduct.price;
+
   return (
     <>
       <SEO title={data.data.contentfulProduct.name} keywords={[`gatsby`, `application`, `react`]} />
@@ -59,7 +63,7 @@ const ProductDetails = data => {
                   href="#"
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulProduct.slug}
-                  data-item-price={data.data.contentfulProduct.price}
+                  data-item-price={price}
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
                   data-item-name={data.data.contentfulProduct.name}
                   data-item-url={`/`}
@@ -71,7 +75,7 @@ const ProductDetails = data => {
                 <div className="row container mt-3">
                   <Link state={{ 
                     itemName: data.data.contentfulProduct.name,
-                    itemPrice: data.data.contentfulProduct.discount ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) : data.data.contentfulProduct.price,
+                    itemPrice: price,
                     itemSize: selectState.value
                   }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                 </div>
