@@ -9,24 +9,25 @@ import { graphql } from 'gatsby';
 import { productFilter } from '../utils/product-filter';
 import { formatPrice } from '../utils/format-price';
 
+/*
 
+function ComingSoon() {
+  return (
+      <div style={{
+          display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          minHeight: '100vh'
+          }}>
+        <h1>COMING SOON</h1>
+        <p>This website is under construction.</p>
+      </div>
+  )
+}
 
-// function ComingSoon() {
-//   return (
-//       <div style={{
-//           display: 'flex', 
-//           flexDirection: 'column', 
-//           justifyContent: 'center', 
-//           alignItems: 'center',
-//           minHeight: '100vh'
-//           }}>
-//         <h1>COMING SOON</h1>
-//         <p>This website is under construction.</p>
-//       </div>
-//   )
-// }
-
-// export default ComingSoon
+export default ComingSoon
+*/
 
 function IndexPost ({ data }) {
 
@@ -105,79 +106,6 @@ const IndexPage = data => {
     </>
   );
 }
-
-// export default ComingSoon
-
-// function IndexPost ({ data }) {
-//     return (
-//       <React.Fragment>
-//         <div className="row product-main">
-//           {data.map(items => (
-//             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`${items.node.slug}`}>
-//             <div>
-//               <div className="details_List">
-//                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
-//                  <div className="details_inner">
-//                   <h2>
-//                     {items.node.name}
-//                   </h2>
-//                   <StarRatingComponent
-//                     name="rate1"
-//                     starCount={5}
-//                     value={items.node.rating}
-//                   />
-//                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>
-//                   <div className="row">
-//                     <div className="col-sm-7 align-self-center">
-//                       {formatPrice(items.node)}
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//             </Link>
-//           ))}
-//         </div>
-//       </React.Fragment>
-//     );
-// }
-
-// const IndexPage = data => {
-//   const mens = productFilter(data.data.allContentfulProduct.edges, 'Mens');
-//   const ladies = productFilter(data.data.allContentfulProduct.edges, 'Ladies');
-//   return (
-//     <Layout>
-//       <SEO title="Home" keywords={[`biker gear`, `vests`, `sewing`, `jackets`]} />
-//       <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
-//       <div className="container">
-//         <div className="text-center"><h2 className="with-underline">Best Sellers</h2></div>
-//       </div>
-//       {
-//         ladies.length > 0 &&
-//         <div className="container mt-5 mb-5">
-//           <div>
-//             <Link className="text-dark" to="/ladies">
-//               <h3>Ladies</h3>
-//             </Link>
-//           </div>
-//           <IndexPost data={ladies}></IndexPost>
-//         </div>
-//       }
-//       {
-//         mens.length > 0 &&
-//         <div className="container mt-5 mb-5">
-//           <div>
-//             <Link className="text-dark" to="/mens">
-//               <h3>Mens</h3>
-//             </Link>
-//           </div>
-//           <IndexPost data={mens}></IndexPost>
-//         </div>
-//       }
-//       <Countdown data={data.data.contentfulDealCountDown} />
-//     </Layout>
-//   );
-// }
 
 export default IndexPage;
 
