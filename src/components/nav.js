@@ -43,6 +43,7 @@ const ResponsiveNav = () => {
         <Link onClick={toggleNav} className="nav-link" to="/store">Store</Link>
         <Link onClick={toggleNav} className="nav-link" to="/about">About Us</Link>
         <Link onClick={toggleNav} className="nav-link" to="/contact-us">Contact Us</Link>
+        <span tabIndex="0" role="link" onKeyDown={toggleNav} onClick={toggleNav} className="nav-link snipcart-customer-signin">My account</span>
       </>
   );
 

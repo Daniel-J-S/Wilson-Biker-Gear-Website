@@ -5,13 +5,9 @@ import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 
 class BlogsPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       NoOfPost: 6
     };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
@@ -22,10 +18,10 @@ class BlogsPost extends React.Component {
   }
 
   handleScroll = () => {
-    var lastScrollY = window.pageYOffset + 1100;
+    const lastScrollY = window.pageYOffset + 1100;
 
     if (lastScrollY > window.outerHeight) {
-      var count = this.state.NoOfPost + 3;
+      const count = this.state.NoOfPost + 3;
       this.setState({
         NoOfPost: count
       });
@@ -57,7 +53,6 @@ class BlogsPost extends React.Component {
                     <strong className="name">{items.node.author.name}</strong>
                   </div>
                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>
-
                 </div>
               </div>
             </li>

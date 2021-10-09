@@ -1,7 +1,7 @@
-import React from 'react'
-import Img from 'gatsby-image'
+import React from 'react';
+import Img from 'gatsby-image';
 import { DiscussionEmbed } from 'disqus-react';
-import SEO from '../components/seo'
+import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 
 const disqusShortname = 'wilsonbikergear';

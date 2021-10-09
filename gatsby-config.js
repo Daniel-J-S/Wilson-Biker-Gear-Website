@@ -11,6 +11,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet-async`,
     {
+      resolve: `gatsby-plugin-scroll-indicator`,
+      options: {
+        color: 'dodgerblue',
+        height: '3px',
+        zIndex: `9999`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout.js`),
