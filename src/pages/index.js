@@ -106,7 +106,7 @@ const IndexPage = data => {
   );
 }
 
-export default ComingSoon
+// export default ComingSoon
 
 // function IndexPost ({ data }) {
 //     return (
@@ -179,7 +179,7 @@ export default ComingSoon
 //   );
 // }
 
-// export default IndexPage;
+export default IndexPage;
 
 export const query = graphql`
   query AboutQuery {

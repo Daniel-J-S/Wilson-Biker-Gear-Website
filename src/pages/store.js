@@ -11,7 +11,6 @@ class IndexPost extends React.Component {
       NoOfPost: 6
 };
  
-
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -21,10 +20,10 @@ class IndexPost extends React.Component {
   }
 
   handleScroll = () => {
-    var lastScrollY = window.pageYOffset + 1100;
+    const lastScrollY = window.pageYOffset + 1100;
 
     if (lastScrollY > window.outerHeight) {
-      var count = this.state.NoOfPost + 3;
+      const count = this.state.NoOfPost + 3;
       this.setState({
         NoOfPost: count
       });
@@ -70,7 +69,6 @@ class IndexPost extends React.Component {
 }
 
 const IndexPage = data => (
-
   <>
     <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
     <div className="container store-page">

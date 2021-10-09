@@ -7,8 +7,6 @@ import logo from '../images/logo.png';
 
 
 const ResponsiveNav = () => {
-
-  
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(true);
   const [showItemsCount, setShowItemsCount] = useState(false)
@@ -23,7 +21,6 @@ const ResponsiveNav = () => {
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
-    
   }, []);
 
 
@@ -46,6 +43,7 @@ const ResponsiveNav = () => {
         <Link onClick={toggleNav} className="nav-link" to="/store">Store</Link>
         <Link onClick={toggleNav} className="nav-link" to="/about">About Us</Link>
         <Link onClick={toggleNav} className="nav-link" to="/contact-us">Contact Us</Link>
+        <span tabIndex="0" role="link" onKeyDown={toggleNav} onClick={toggleNav} className="nav-link snipcart-customer-signin">My account</span>
       </>
   );
 
@@ -57,21 +55,21 @@ const ResponsiveNav = () => {
           setShowItemsCount(true)
         }
     });
-}
-
-if(typeof window !== "undefined") {
-  const observer = new MutationObserver(handleMutations);
-
-  if(itemsCount.current) {
-    observer.observe(itemsCount.current, { childList: true });
   }
-}
+
+  if(typeof window !== "undefined") {
+    const observer = new MutationObserver(handleMutations);
+
+    if(itemsCount.current) {
+      observer.observe(itemsCount.current, { childList: true });
+    }
+  }
   
 
 
   return (
     <div className="nav-wrapper">
-      <Link to="/">
+      <Link to="/" onClick={() => setNavVisibility(false)}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
       <CSSTransition
@@ -81,7 +79,7 @@ if(typeof window !== "undefined") {
         unmountOnExit
       >
         <nav className="nav">
-            { links }
+          { links }
         </nav>
       </CSSTransition>
       {
@@ -91,10 +89,10 @@ if(typeof window !== "undefined") {
         </nav>
       }
       <div className="header-cart">
-        <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
+        <span className="Header__summary snipcart-summary snipcart-checkout">
           <div style={{visibility: showItemsCount ? 'visible' : 'hidden'}} ref={itemsCount} className="snipcart-items-count" />
           <i className="fas fa-sm fa-shopping-bag" />
-        </Link>
+        </span>
       </div>
       <button onClick={toggleNav} className="burger">
         <div className={isNavVisible ? 'burger-animate': 'fixed'} />

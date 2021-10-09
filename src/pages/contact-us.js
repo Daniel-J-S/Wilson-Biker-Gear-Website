@@ -6,7 +6,7 @@ function Contact ({ location }) {
     function getItemDetails() {
         if(location.state && location.state.itemName && location.state.itemPrice) {
             const {itemName, itemPrice, itemSize} = location.state
-            return `Hello there, I'm interested in purchasing your "${itemName}" available for $${itemPrice} in a size "${itemSize.toLowerCase()}"`
+            return `Hello there, I'm interested in purchasing your "${itemName}" available for $${itemPrice} in a size ${itemSize.toLowerCase()}`
         } else {
             return false
         }

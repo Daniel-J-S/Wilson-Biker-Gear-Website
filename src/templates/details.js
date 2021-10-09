@@ -7,7 +7,7 @@ import { formatPrice } from '../utils/format-price';
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
-    value: "Small",
+    value: 'Choose Size',
     userSelection: false
   });
 
@@ -52,7 +52,8 @@ const ProductDetails = data => {
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
               <span className="price">{formatPrice(data.data.contentfulProduct)}</span>
-              <select defaultValue="Choose Size" style={{padding: '.3rem', borderRadius: '7px'}} value={selectState.value} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+              <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                <option value="Choose Size">Choose Size</option>
                 {data.data.contentfulProduct.sizes.map((s, i) => (
                   <option key={i} value={s.size}>{s.size}</option>
                 ))}
@@ -62,8 +63,8 @@ const ProductDetails = data => {
               
               <div className="col-sm-12 col-md-12 text-left">
                 <div className="row container mb-3">
-                <a
-                  href="#"
+                <button
+                  style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulProduct.slug}
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
@@ -72,10 +73,11 @@ const ProductDetails = data => {
                   data-item-custom1-options={selectState.userSelection ? selectState.value + '|' + sizes.split('|').filter(s => s !== selectState.value).join('|') : sizes}
                   data-item-name={data.data.contentfulProduct.name}
                   data-item-url={data.data.contentfulProduct.slug}
+                  disabled={!selectState.userSelection}
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
-                </a> 
+                </button> 
                 </div>
                 <div className="row container mt-3">
                   <Link state={{ 
