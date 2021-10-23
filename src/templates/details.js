@@ -19,7 +19,7 @@ const ProductDetails = data => {
   ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) 
   : data.data.contentfulProduct.price;
 
-  const sizes = data.data.contentfulProduct.sizes.reverse().map((s, i) => s.size).join('|');
+  const sizes = data.data.contentfulProduct.sizes.map((s, i) => s.size).join('|');
   
   return (
     <>
