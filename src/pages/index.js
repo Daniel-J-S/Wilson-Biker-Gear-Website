@@ -7,7 +7,7 @@ import Countdown from '../components/countdown';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
 import { productFilter } from '../utils/product-filter';
-import { formatPrice } from '../utils/format-price';
+import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 /*
 
@@ -34,11 +34,13 @@ function IndexPost ({ data }) {
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.map(items => (
+          {data.map(items => {
+            const { minPrice, maxPrice } = processSizeAndPrice(items.node.sizesAndPrices);
+            return (
             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`${items.node.slug}`}>
             <div>
               <div className="details_List">
-                {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fluid} />}
+                {items.node.image === null ? <div className="no-image">No Image</div> : <Img fluid={items.node.image.fluid} />}
 
                 <div className="details_inner">
 
@@ -53,14 +55,14 @@ function IndexPost ({ data }) {
                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>
                   <div className="row">
                     <div className="col-sm-7 align-self-center">
-                      {formatPrice(items.node)}
+                      <small>{`$${minPrice} - $${maxPrice}`}</small>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             </Link>
-          ))}
+        )})}
         </div>
       </React.Fragment>
     );
@@ -102,7 +104,7 @@ const IndexPage = data => {
           <IndexPost data={mens}></IndexPost>
         </div>
       }
-      <Countdown data={data.data.contentfulDealCountDown} />
+      {/* <Countdown data={data.data.contentfulDealCountDown} /> */}
     </>
   );
 }
@@ -133,7 +135,7 @@ export const query = graphql`
               sizes
             }
           }
-          price
+          sizesAndPrices
           description {
             childMarkdownRemark {
               excerpt(pruneLength: 140)

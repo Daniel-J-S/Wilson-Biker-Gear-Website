@@ -3,23 +3,22 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
-import { formatPrice } from '../utils/format-price';
+import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 const ProductDetails = data => {
   const [selectState, setSelectState] = useState({
     value: 'Choose Size',
-    userSelection: false
+    userSelection: false,
   });
 
   function handleChange(e) {
     setSelectState({value: e.target.value, userSelection: true});
   }
 
-  const price = data.data.contentfulProduct.discount 
-  ? data.data.contentfulProduct.price - (data.data.contentfulProduct.price * data.data.contentfulProduct.discount) 
-  : data.data.contentfulProduct.price;
 
-  const sizes = data.data.contentfulProduct.sizes.map((s, i) => s.size).join('|');
+  const { lookup, minPrice, sizes, sizeAndPriceStr } = processSizeAndPrice(data.data.contentfulProduct.sizesAndPrices);
+
+  console.log(sizeAndPriceStr)
   
   return (
     <>
@@ -51,11 +50,11 @@ const ProductDetails = data => {
           />
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
-              <span className="price">{formatPrice(data.data.contentfulProduct)}</span>
+              <span className="price">${selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}</span>
               <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 <option value="Choose Size">Choose Size</option>
-                {data.data.contentfulProduct.sizes.map((s, i) => (
-                  <option key={i} value={s.size}>{s.size}</option>
+                {sizes.map((s, i) => (
+                  <option key={i} value={s}>{s}</option>
                 ))}
               </select>
             </div>
@@ -68,10 +67,10 @@ const ProductDetails = data => {
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulProduct.slug}
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
-                  data-item-price={price}
+                  data-item-price={selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}
                   data-item-custom1-name="Size"
-                  data-item-custom1-options={selectState.userSelection ? selectState.value + '|' + sizes.split('|').filter(s => s !== selectState.value).join('|') : sizes}
-                  data-item-name={data.data.contentfulProduct.name}
+                  data-item-custom1-options={selectState.userSelection ? `${selectState.value + '|' + sizeAndPriceStr.split('|').filter(s => !s.includes(selectState.value)).join('|')}`: sizeAndPriceStr}
+                  data-item-name={`${data.data.contentfulProduct.name} ${selectState.userSelection ? `- (Size ${selectState.value})` : ''}`}
                   data-item-url={data.data.contentfulProduct.slug}
                   disabled={!selectState.userSelection}
                   >
@@ -80,9 +79,10 @@ const ProductDetails = data => {
                 </button> 
                 </div>
                 <div className="row container mt-3">
-                  <Link state={{ 
+                  <Link
+                  state={{ 
                     itemName: data.data.contentfulProduct.name,
-                    itemPrice: price,
+                    itemPrice: lookup[selectState.value],
                     itemSize: selectState.value
                   }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                 </div>
@@ -109,9 +109,6 @@ export const query = graphql`
       name
       slug
       discount
-      sizes {
-        size
-      }
       image {
         fixed(width: 1120, height: 500) {
         width
@@ -120,7 +117,7 @@ export const query = graphql`
         srcSet
       }
     }
-    price
+    sizesAndPrices
       description {
       childMarkdownRemark {
         html

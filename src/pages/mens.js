@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
-import { formatPrice } from '../utils/format-price';
 
 class IndexPost extends React.Component {
     state = {
@@ -56,7 +55,7 @@ class IndexPost extends React.Component {
                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>
                   <div className="row">
                     <div className="col-sm-7 align-self-center">
-                    {formatPrice(items.node)}
+                    
                     </div>
                   </div>
                 </div>
@@ -103,7 +102,7 @@ export const query = graphql`
               srcSet
             }
           }
-          price
+          sizesAndPrices
           description {
             childMarkdownRemark {
               excerpt(pruneLength: 140)

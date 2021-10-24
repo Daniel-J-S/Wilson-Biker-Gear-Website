@@ -377,7 +377,7 @@ p {
   align-items: center;
   justify-items: start;
 }
-.nav a, span {
+.nav a, .nav > span {
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 700;
