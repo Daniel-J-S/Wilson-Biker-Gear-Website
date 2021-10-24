@@ -12,6 +12,9 @@ class Footer extends Component {
                         <div className="footer-widget footer-content">
                             <section id="nav_menu-8" className="widget widget_nav_menu">
                                 <div className="menu-main-container">
+                                    <div className="mt-5">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d596.1481999845672!2d-97.44205310714966!3d32.72965858821473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e0d60633303a1%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635114299251!5m2!1sen!2sus" width="70%" height="250" style={{border:0}} loading="lazy"></iframe>
+                                    </div>
                                     <ul id="menu-main" className="menu">
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/store">Store</Link></li>
@@ -35,10 +38,13 @@ class Footer extends Component {
                                     </li>
                                 </ul>
                                 <address className="mt-3">
+                                    <a href="https://g.page/wilson-biker-gear?share" target="_blank" rel="noopener noreferrer">
                                     3016 Alta Mere Dr<br />
                                     Fort Worth, TX 76116<br />
+                                    </a>
                                     <a href="tel:8173860631">(817) 386-0631</a>
                                 </address>
+                             
                                 <p className="mt-5 mb-3"><strong>Hours of Operation</strong></p>
                                 <ul>
                                     <li>Tues - Sat: 9 AM - 5 PM</li>
