@@ -17,8 +17,6 @@ const ProductDetails = data => {
 
 
   const { lookup, minPrice, sizes, sizeAndPriceStr } = processSizeAndPrice(data.data.contentfulProduct.sizesAndPrices);
-
-  console.log(sizeAndPriceStr)
   
   return (
     <>

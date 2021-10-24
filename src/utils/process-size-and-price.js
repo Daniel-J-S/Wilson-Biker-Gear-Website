@@ -10,15 +10,6 @@ export function processSizeAndPrice(data) {
     sizes.forEach((v, i) => {
         lookup[v] = prices[i]
     });
-
-    console.log({
-        lookup,
-        prices,
-        sizes,
-        maxPrice,
-        minPrice,
-        sizeAndPriceStr
-    })
     
     return {
         lookup,
