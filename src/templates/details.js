@@ -29,7 +29,7 @@ const ProductDetails = data => {
   return (
     <>
       <SEO title={data.data.contentfulProduct.name} keywords={[`gatsby`, `application`, `react`]} />
-      <div className="container details-page">
+      <div className="container details-page mb-5">
         <div className="product-details">
           <div className="Product-Screenshot">
             {data.data.contentfulProduct.productMorePhotos === null ? <div className="no-image">No Image</div> :
