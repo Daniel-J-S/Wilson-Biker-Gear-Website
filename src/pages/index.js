@@ -44,7 +44,10 @@ function IndexPost ({ data, linkData }) {
             </Link>
         )})}
         </div>
-        <Link className="text-dark" to={`/${linkData}`}>See More <i className="fa fa-arrow-right"></i></Link>
+        {
+          data.length > 6
+          && <Link className="text-dark" to={`/${linkData}`}>See More <i className="fa fa-arrow-right"></i></Link>
+        }
       </React.Fragment>
     );
 }
