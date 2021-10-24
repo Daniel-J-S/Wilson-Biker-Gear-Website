@@ -3,56 +3,36 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Banner from '../components/banner';
-import Countdown from '../components/countdown';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
 import { productFilter } from '../utils/product-filter';
 import { processSizeAndPrice } from '../utils/process-size-and-price';
 
-/*
 
-function ComingSoon() {
-  return (
-      <div style={{
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'center', 
-          alignItems: 'center',
-          minHeight: '100vh'
-          }}>
-        <h1>COMING SOON</h1>
-        <p>This website is under construction.</p>
-      </div>
-  )
-}
-
-export default ComingSoon
-*/
-
-function IndexPost ({ data }) {
+function IndexPost ({ data, linkData }) {
 
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.map(items => {
+          {data.slice(0, 6).map(items => {
             const { minPrice, maxPrice } = processSizeAndPrice(items.node.sizesAndPrices);
             return (
             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`${items.node.slug}`}>
             <div>
               <div className="details_List">
                 {items.node.image === null ? <div className="no-image">No Image</div> : <Img fluid={items.node.image.fluid} />}
-
                 <div className="details_inner">
-
-                  <h2>
-                    {items.node.name}
-                  </h2>
+                    {
+                      items.node.name.length >= 30 
+                      ? <h2>{items.node.name.split(' ').slice(0, 4).join(' ')}...</h2> 
+                      : <h2>{items.node.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                    }
                   <StarRatingComponent
                     name="rate1"
                     starCount={5}
                     value={items.node.rating}
                   />
-                  <p>{items.node.description.childMarkdownRemark.excerpt}</p>
+                  <p>{items.node.description.childMarkdownRemark.excerpt.substr(0, 50)}...</p>
                   <div className="row">
                     <div className="col-sm-7 align-self-center">
                       <small>{`$${minPrice} - $${maxPrice}`}</small>
@@ -64,6 +44,7 @@ function IndexPost ({ data }) {
             </Link>
         )})}
         </div>
+        <Link className="text-dark" to={`/${linkData}`}>See More <i className="fa fa-arrow-right"></i></Link>
       </React.Fragment>
     );
 }
@@ -90,7 +71,7 @@ const IndexPage = data => {
               <h3>Ladies</h3>
             </Link>
           </div>
-          <IndexPost data={ladies}></IndexPost>
+          <IndexPost linkData="ladies" data={ladies}></IndexPost>
         </div>
       }
       {
@@ -101,10 +82,9 @@ const IndexPage = data => {
               <h3>Mens</h3>
             </Link>
           </div>
-          <IndexPost data={mens}></IndexPost>
+          <IndexPost linkData="mens" data={mens}></IndexPost>
         </div>
       }
-      {/* <Countdown data={data.data.contentfulDealCountDown} /> */}
     </>
   );
 }

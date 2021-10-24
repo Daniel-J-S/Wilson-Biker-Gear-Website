@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql } from 'gatsby';
+import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 class IndexPost extends React.Component {
     state = {
@@ -36,35 +37,38 @@ class IndexPost extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="row product-main" onScroll={this.onScrollEvent}>
-          {data.data.allContentfulProduct.edges.slice(0, NoOfPost).map(items => (
-            <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4"  to={`${items.node.slug}`}>
-            <div>
-              <div className="details_List">
-                {items.node.image === null ? <div className="no-image">No Image</div> : <Img fixed={items.node.image.fixed} />}
-
-                <div className="details_inner">
-                  <h2>
-                    {items.node.name}
-                  </h2>
-                  <StarRatingComponent
-                    name="rate1"
-                    starCount={5}
-                    value={items.node.rating}
-                  />
-                  <p>{items.node.description.childMarkdownRemark.excerpt}</p>
-                  <div className="row">
-                    <div className="col-sm-7 align-self-center">
-                    
-                    </div>
+      <div className="row product-main">
+        {data.data.allContentfulProduct.edges.slice(0, NoOfPost).map(items => {
+          const { minPrice, maxPrice } = processSizeAndPrice(items.node.sizesAndPrices);
+          return (
+          <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
+          <div>
+            <div className="details_List">
+              {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fixed} />}
+              <div className="details_inner">
+                  {
+                    items.node.name.length >= 30 
+                    ? <h2>{items.node.name.split(' ').slice(0, 4).join(' ')}...</h2> 
+                    : <h2>{items.node.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                  }
+                <StarRatingComponent
+                  name="rate1"
+                  starCount={5}
+                  value={items.node.rating}
+                />
+                <p>{items.node.description.childMarkdownRemark.excerpt.substr(0, 50)}...</p>
+                <div className="row">
+                  <div className="col-sm-7 align-self-center">
+                    <small>{`$${minPrice} - $${maxPrice}`}</small>
                   </div>
                 </div>
               </div>
             </div>
-            </Link>
-          ))}
-        </div>
-      </React.Fragment>
+          </div>
+          </Link>
+      )})}
+      </div>
+    </React.Fragment>
     );
   }
 }
@@ -73,7 +77,7 @@ const IndexPage = data => (
 
   <>
     <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
-    <div className="container store-page">
+    <div className="container store-page mb-5">
       <div className="text-center mt-5">
           <h1 className="with-underline">Mens Apparel</h1>
       </div>
@@ -112,3 +116,4 @@ export const query = graphql`
     }
   }
 }`;
+
