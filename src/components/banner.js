@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 var settings = {
   dots: true,
-  speed: 1500,
+  speed: 2000,
   infinite: true,
   autoplay: true,
   autoplaySpeed: 3600,
