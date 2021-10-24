@@ -40,7 +40,7 @@ class BlogsPost extends React.Component {
             <li>
               <div className="post-item template-square columned">
                 <div className="post-thumbnail">
-                  <Img sizes={items.node.featureImage.fluid} />
+                  <Img fluid={items.node.featureImage.fluid} />
                   <div className="post-date">
                     <i className="fas fa-calendar-alt"></i>
                     {items.node.publicData}
@@ -49,7 +49,7 @@ class BlogsPost extends React.Component {
                 <div className="post-details">
                   <h2 className="post-title"><Link to={`${items.node.slug}`}>{items.node.title}</Link></h2>
                   <div className="author">
-                    <Img sizes={items.node.author.photo.fluid} />
+                    <Img fluid={items.node.author.photo.fluid} />
                     <strong className="name">{items.node.author.name}</strong>
                   </div>
                   <p>{items.node.description.childMarkdownRemark.excerpt}</p>

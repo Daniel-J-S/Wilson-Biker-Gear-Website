@@ -11,7 +11,7 @@ const BlogDetails = data => (
         <SEO title={data.data.contentfulBlogs.title} keywords={[`vests`, `jackets`, `biker gear`, `mens`, `womens`]} />
         <div className="blogs-page">
             <div className="post-thumbnail">
-                <Img sizes={data.data.contentfulBlogs.featureImage.fluid} />
+                <Img fluid={data.data.contentfulBlogs.featureImage.fluid} />
             </div>
             <div className="container">
                 <div className="post-details">
@@ -21,7 +21,7 @@ const BlogDetails = data => (
                         {data.data.contentfulBlogs.publicData}
                     </div>
                     <div className="author">
-                        <Img sizes={data.data.contentfulBlogs.author.photo.fixed} />
+                        <Img fixed={data.data.contentfulBlogs.author.photo.fixed} />
                         <strong className="name">{data.data.contentfulBlogs.author.name}</strong>
                     </div>
                     <div

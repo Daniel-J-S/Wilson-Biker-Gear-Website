@@ -24,7 +24,7 @@ export default class Banner extends Component {
           {BannerData.map((items, i) => (
             <div key={i} className="item">
               <div className="site-Banner">
-                <Img sizes={items.node.image.fluid} />
+                <Img fluid={items.node.image.fluid} />
                 <div className="Banner-details">
                   <div>
                     <span className="sub-title">{items.node.subHeading}</span>

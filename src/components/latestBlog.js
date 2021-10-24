@@ -11,7 +11,7 @@ export default class LatestBlogs extends Component {
                     {data.edges.map(items => (
                         <li key={items.node.id}>
                             <div className="inner">
-                                <Img sizes={items.node.featureImage.fluid} />
+                                <Img fluid={items.node.featureImage.fluid} />
                                 <h2>{items.node.title}</h2>
                             </div>
                         </li>

@@ -7,7 +7,7 @@ export default class Countdown extends Component {
     const { data } = this.props;
     return (
       <div className="countdown-section">
-        <Img sizes={data.featureImage.fluid} />
+        <Img fluid={data.featureImage.fluid} />
         <div className="container">
           <div className="countdown-inner">
             <h2 className="with-underline">{data.title}</h2>

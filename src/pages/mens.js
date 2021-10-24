@@ -41,7 +41,7 @@ class IndexPost extends React.Component {
             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4"  to={`${items.node.slug}`}>
             <div>
               <div className="details_List">
-                {items.node.image === null ? <div className="no-image">No Image</div> : <Img sizes={items.node.image.fixed} />}
+                {items.node.image === null ? <div className="no-image">No Image</div> : <Img fixed={items.node.image.fixed} />}
 
                 <div className="details_inner">
                   <h2>
