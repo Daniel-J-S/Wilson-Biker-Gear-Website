@@ -15,14 +15,6 @@ const ProductDetails = data => {
     setSelectState({value: e.target.value, userSelection: true});
   }
 
-  function handleFocus() {
-    console.log('focus')         
-  }
-
-  function handleBlur() {
-    console.log('blur')   
-  }
-
 
   const { lookup, minPrice, maxPrice, sizes, prices, sizeAndPriceStr } = processSizeAndPrice(data.data.contentfulProduct.sizesAndPrices);
   
@@ -60,7 +52,7 @@ const ProductDetails = data => {
               <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 {!selectState.userSelection && <option value="Choose Size">Choose Size</option> }
                 {sizes.map((s, i) => (
-                  <option onFocus={handleFocus} onBlur={handleBlur} key={i} value={s}>{selectState.value === s ? s : `${s} - $${prices[i]}`}</option>
+                  <option key={i} value={s}>{selectState.value === s ? s : `${s} - $${prices[i]}`}</option>
                 ))}
               </select>
             </div>
