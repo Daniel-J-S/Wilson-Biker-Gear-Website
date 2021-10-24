@@ -71,7 +71,7 @@ const IndexPage = data => {
         <div className="container mt-5 mb-5">
           <div>
             <Link className="text-dark" to="/ladies">
-              <h3 className="text-center text-md-left">Ladies</h3>
+              <h3 className="text-center text-md-left">Ladies Apparel</h3>
             </Link>
           </div>
           <IndexPost linkData="ladies" data={ladies}></IndexPost>
@@ -82,7 +82,7 @@ const IndexPage = data => {
         <div className="container mt-5 mb-5">
           <div>
             <Link className="text-dark" to="/mens">
-              <h3 className="text-center text-md-left">Mens</h3>
+              <h3 className="text-center text-md-left">Mens Apparel</h3>
             </Link>
           </div>
           <IndexPost linkData="mens" data={mens}></IndexPost>
