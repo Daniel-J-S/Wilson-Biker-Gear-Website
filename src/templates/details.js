@@ -68,7 +68,7 @@ const ProductDetails = data => {
                   data-item-price={selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.userSelection ? `${selectState.value + '|' + sizeAndPriceStr.split('|').filter(s => !s.includes(selectState.value)).join('|')}`: sizeAndPriceStr}
-                  data-item-name={`${data.data.contentfulProduct.name} ${selectState.userSelection ? `- (Size ${selectState.value})` : ''}`}
+                  data-item-name={data.data.contentfulProduct.name}
                   data-item-url={data.data.contentfulProduct.slug}
                   disabled={!selectState.userSelection}
                   >
