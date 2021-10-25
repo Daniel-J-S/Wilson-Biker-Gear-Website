@@ -39,7 +39,7 @@ const ResponsiveNav = () => {
 
   const links = (
       <>
-        <Link activeStyle={{display: 'none'}} onClick={toggleNav} className="nav-link" to="/">Home</Link>
+        <Link activeStyle={{visibility: 'hidden'}} onClick={toggleNav} className="nav-link" to="/">Home</Link>
         <Link onClick={toggleNav} className="nav-link" to="/store">Store</Link>
         <Link onClick={toggleNav} className="nav-link" to="/about">About Us</Link>
         <Link onClick={toggleNav} className="nav-link" to="/contact-us">Contact Us</Link>
