@@ -6,10 +6,7 @@ import tiktokLogo from '../static/tiktok-brands.svg';
 class Footer extends Component {
     render() {
         return (
-            <footer className="site-footer mt-5">
-                <div className="mt-5">
-                    <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d596.1481999845672!2d-97.44205310714966!3d32.72965858821473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e0d60633303a1%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635114299251!5m2!1sen!2sus" width="100%" height="375" style={{borderTop: '1px solid #808080', borderBottom: 0, borderLeft: 0, borderRight: 0}} loading="lazy" />
-                </div>
+            <footer className="site-footer">
                 <div className="footer_inner">
                     <div className="container">
                         <div className="footer-widget footer-content">

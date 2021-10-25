@@ -88,6 +88,9 @@ const IndexPage = data => {
           <IndexPost linkData="mens" data={mens}></IndexPost>
         </div>
       }
+      <div className="mt-5" style={{backgroundColor: 'black'}}>
+        <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d519.1963103009764!2d-97.44133079496027!3d32.72965701376882!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635121261650!5m2!1sen!2sus" width="100%" height="375" style={{ padding: 0, margin: 0, borderTop: '1px solid #808080', border: 0}} loading="lazy" />
+      </div>
     </>
   );
 }
