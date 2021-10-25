@@ -454,6 +454,10 @@ p {
   100% { opacity: 1; }
 }
 
+.main-title {
+  display: inline;
+}
+
 @media (max-width: 1065px) {
   .nav-wrapper {
     grid-template-columns: 80% 10% 10%;
@@ -558,6 +562,9 @@ p {
 
 /* Media Css */
 @media (max-width:991px){
+  .main-title {
+    display: none;
+  }
   .nav-wrapper {
     grid-template-columns: 75% 15% 10%;
   }
@@ -574,6 +581,7 @@ p {
 
 
 @media (max-width:767px){
+
   .nav-wrapper {
     grid-template-columns: 80% 10% 10%;
   }

@@ -64,7 +64,7 @@ const IndexPage = data => {
       />
       <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
       <div className="container">
-        <div className="text-center"><h2 className="with-underline d-sm-none d-lg-inline">Best Sellers</h2></div>
+        <div className="text-center"><h2 className="main-title with-underline">Best Sellers</h2></div>
       </div>
       {
         ladies.length > 0 &&
