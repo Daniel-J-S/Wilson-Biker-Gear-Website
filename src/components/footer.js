@@ -6,15 +6,15 @@ import tiktokLogo from '../static/tiktok-brands.svg';
 class Footer extends Component {
     render() {
         return (
-            <footer className="site-footer">
+            <footer className="site-footer mt-5">
+                <div className="mt-5">
+                    <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d596.1481999845672!2d-97.44205310714966!3d32.72965858821473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e0d60633303a1%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635114299251!5m2!1sen!2sus" width="100%" height="375" style={{borderTop: '1px solid #808080', borderBottom: 0, borderLeft: 0, borderRight: 0}} loading="lazy" />
+                </div>
                 <div className="footer_inner">
                     <div className="container">
                         <div className="footer-widget footer-content">
                             <section id="nav_menu-8" className="widget widget_nav_menu">
                                 <div className="menu-main-container">
-                                    <div className="mt-5">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d596.1481999845672!2d-97.44205310714966!3d32.72965858821473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e0d60633303a1%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635114299251!5m2!1sen!2sus" width="70%" height="250" style={{border:0}} loading="lazy"></iframe>
-                                    </div>
                                     <ul id="menu-main" className="menu">
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/store">Store</Link></li>
