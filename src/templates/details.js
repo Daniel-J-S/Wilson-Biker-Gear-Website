@@ -6,17 +6,31 @@ import SEO from '../components/seo';
 import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 const ProductDetails = data => {
+  const [
+    lookup,
+    prices,
+    sizes,
+    maxPrice,
+    minPrice,
+    sizeAndPriceStr, getSizePriceStr] = processSizeAndPrice(data.data.contentfulProduct.sizesAndPrices);
+  
   const [selectState, setSelectState] = useState({
     value: 'Choose Size',
     userSelection: false,
+    sizeAndPriceStr,
   });
 
   function handleChange(e) {
-    setSelectState({value: e.target.value, userSelection: true});
+    e.persist()
+    setSelectState(prevState => ({
+      ...prevState,
+      value: e.target.value, 
+      userSelection: true,
+      sizeAndPriceStr: getSizePriceStr(e.target.value)
+    }));
   }
 
 
-  const { lookup, minPrice, maxPrice, sizes, prices, sizeAndPriceStr } = processSizeAndPrice(data.data.contentfulProduct.sizesAndPrices);
   
   return (
     <>
@@ -67,7 +81,7 @@ const ProductDetails = data => {
                   data-item-image={data.data.contentfulProduct.image === null ? "" : data.data.contentfulProduct.image.fixed.src}
                   data-item-price={selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}
                   data-item-custom1-name="Size"
-                  data-item-custom1-options={selectState.userSelection ? `${selectState.value + '|' + sizeAndPriceStr.split('|').filter(s => !s.includes(selectState.value)).join('|')}`: sizeAndPriceStr}
+                  data-item-custom1-options={selectState.sizeAndPriceStr}
                   data-item-name={data.data.contentfulProduct.name}
                   data-item-url={data.data.contentfulProduct.slug}
                   disabled={!selectState.userSelection}
