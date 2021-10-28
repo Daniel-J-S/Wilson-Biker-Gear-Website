@@ -91,7 +91,7 @@ const ResponsiveNav = () => {
       <div className="header-cart">
         <span className="Header__summary snipcart-summary snipcart-checkout">
           <div style={{visibility: showItemsCount ? 'visible' : 'hidden'}} ref={itemsCount} className="snipcart-items-count" />
-          <i className="fas fa-sm fa-shopping-bag" />
+          <i style={{cursor: 'pointer'}} className="fas fa-sm fa-shopping-bag" />
         </span>
       </div>
       <button onClick={toggleNav} className="burger">
