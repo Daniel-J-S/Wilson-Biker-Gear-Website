@@ -24,7 +24,7 @@ function IndexPost ({ data, linkData }) {
                     {
                       items.node.name.length >= 30 
                       ? <h2>{items.node.name.split(' ').slice(0, 4).join(' ')}...</h2> 
-                      : <h2>{items.node.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                      : <h2>{items.node.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
                     }
                   <StarRatingComponent
                     name="rate1"
