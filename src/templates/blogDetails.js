@@ -8,7 +8,12 @@ const disqusShortname = 'wilsonbikergear';
 
 const BlogDetails = data => (
     <>
-        <SEO title={data.data.contentfulBlogs.title} keywords={[`vests`, `jackets`, `biker gear`, `mens`, `womens`]} />
+        <SEO 
+            title={data.data.contentfulBlogs.title} 
+            keywords={[`vests`, `jackets`, `biker gear`, `mens`, `womens`]} 
+            description={`Check out our latest post titled: ${data.data.contentfulBlogs.title}`}
+            location={data.location}
+        />
         <div className="blogs-page">
             <div className="post-thumbnail">
                 <Img fluid={data.data.contentfulBlogs.featureImage.fluid} />

@@ -38,6 +38,7 @@ const ProductDetails = data => {
         title={data.data.contentfulProduct.name} 
         keywords={[`Clothing`, `${data.data.contentfulProduct.name}`, `Jackets`, `Vests`]} 
         description={`Check out our ${data.data.contentfulProduct.name} currently starting at $${minPrice}`}
+        location={data.location}
       />
       <div className="container details-page mb-5">
         <div className="product-details">

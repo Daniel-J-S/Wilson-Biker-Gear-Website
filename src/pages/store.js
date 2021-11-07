@@ -80,6 +80,7 @@ const IndexPage = data => (
       title="Store" 
       keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} 
       description="Check out our current inventory for mens and womens jackets and vests"
+      location={data.location}
     />
     <div className="container store-page mb-5">
       <div className="text-center mt-5">

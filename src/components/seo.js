@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { useStaticQuery, graphql } from 'gatsby';
 import ogImage from '../images/og-image.png';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, location }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: location && location.pathname === '/' ? 'Welcome to Wilson Biker Gear' : `${title} | Wilson Biker Gear`,
         },
         {
           property: `og:description`,

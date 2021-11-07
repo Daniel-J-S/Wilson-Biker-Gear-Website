@@ -18,6 +18,7 @@ function Contact ({ location }) {
                 title="Contact Us" 
                 keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} 
                 description="Please contact us for any questions regarding our current inventory or if you just want to say hello"
+                location={location}
             />
             <div className="Contact-us">
                 <div className="container">

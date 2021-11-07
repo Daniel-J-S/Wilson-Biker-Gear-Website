@@ -2,12 +2,13 @@ import React from 'react';
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
 
-const NotFoundPage = () => (
+const NotFoundPage = ({ location }) => (
   <>
     <SEO 
       title="404: Not found" 
       keywords={[`not found`, `404`, `page not available`]} 
       description="Sorry, the page you requested was not found"
+      location={location}
     />
     <div className="container not-found">
       <h1>NOT FOUND</h1>
