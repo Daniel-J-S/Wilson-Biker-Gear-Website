@@ -10,11 +10,10 @@ import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 
 function IndexPost ({ data, linkData }) {
-
     return (
       <React.Fragment>
         <div className="row product-main">
-          {data.slice(0, 6).map(items => {
+          {data.map(items => {
             const {3: minPrice, 4: maxPrice }  = processSizeAndPrice(items.node.sizesAndPrices);
             return (
             <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`${items.node.slug}`}>
@@ -99,7 +98,7 @@ export default IndexPage;
 
 export const query = graphql`
   query AboutQuery {
-    allContentfulProduct(limit: 6,sort:{fields:createdAt,order: DESC}){
+    allContentfulProduct(sort:{fields:createdAt, order: DESC}){
       edges{
         node{
           id
