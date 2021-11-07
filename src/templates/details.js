@@ -34,7 +34,11 @@ const ProductDetails = data => {
   
   return (
     <>
-      <SEO title={data.data.contentfulProduct.name} keywords={[`gatsby`, `application`, `react`]} />
+      <SEO 
+        title={data.data.contentfulProduct.name} 
+        keywords={[`Clothing`, `${data.data.contentfulProduct.name}`, `Jackets`, `Vests`]} 
+        description={`Check out our ${data.data.contentfulProduct.name} currently starting at $${minPrice}`}
+      />
       <div className="container details-page mb-5">
         <div className="product-details">
           <div className="Product-Screenshot">

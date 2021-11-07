@@ -76,7 +76,11 @@ class IndexPost extends React.Component {
 const IndexPage = data => (
 
   <>
-    <SEO title="Store" keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} />
+    <SEO 
+      title="Mens Apparel" 
+      keywords={[`current inventory`, `jackets`, `vests`, `sewing`]} 
+      description="Check out our current inventory for mens jackets and vests"
+    />
     <div className="container store-page mb-5">
       <div className="text-center mt-5">
           <h1 className="with-underline">Mens Apparel</h1>

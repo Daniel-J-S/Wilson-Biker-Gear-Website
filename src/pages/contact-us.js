@@ -14,7 +14,11 @@ function Contact ({ location }) {
 
     return (
         <>
-            <SEO title="Contact Us" keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} />
+            <SEO 
+                title="Contact Us" 
+                keywords={[`Let us hear from you`, `contact us`, `reach out to us`]} 
+                description="Please contact us for any questions regarding our current inventory or if you just want to say hello"
+            />
             <div className="Contact-us">
                 <div className="container">
                     <h1 className="mb-5">Contact Us</h1>

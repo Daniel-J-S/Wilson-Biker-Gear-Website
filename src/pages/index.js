@@ -56,7 +56,7 @@ const IndexPage = data => {
       <SEO 
         title="Home" 
         keywords={[`biker gear`, `vests`, `sewing`, `jackets`]}
-        meta={[{description: `40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time.`}]} 
+        description="40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time."
       />
       <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
       <div className="container">

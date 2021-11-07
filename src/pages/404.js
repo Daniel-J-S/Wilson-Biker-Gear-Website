@@ -4,7 +4,11 @@ import { Link } from 'gatsby';
 
 const NotFoundPage = () => (
   <>
-    <SEO title="404: Not found" keywords={[`not found`, `404`, `page not available`]} />
+    <SEO 
+      title="404: Not found" 
+      keywords={[`not found`, `404`, `page not available`]} 
+      description="Sorry, the page you requested was not found"
+    />
     <div className="container not-found">
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>

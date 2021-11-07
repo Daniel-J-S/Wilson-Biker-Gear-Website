@@ -7,7 +7,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 function About({ data }) {
         return ( 
             <>
-            <SEO title="About" keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} />
+            <SEO 
+                title="About" 
+                keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} 
+                description="40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time."
+            />
             <div className="site-About">
                 <div className="container">
                     <div className="row">
