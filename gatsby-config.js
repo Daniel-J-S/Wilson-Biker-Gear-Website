@@ -18,12 +18,12 @@ module.exports = {
         zIndex: `9999`,
       },
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layout.js`),
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/layout.js`),
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-crisp-chat',
       options: {
