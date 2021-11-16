@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const GetBackWhips = data => {
   
@@ -35,7 +36,7 @@ const GetBackWhips = data => {
           <div className="Product-Screenshot">
             {data.data.contentfulAccessory.productMorePhotos === null ? <div className="no-image">No Image</div> :
               <Tabs>
-                {data.data.contentfulAccessory.productMorePhotos.map(items => (
+                {data.data.contentfulAccessory.productMorePhotos.slice(0, 3).map(items => (
                   <TabPanel key={items.id}>
                     <Tab><img src={items.fixed.src} alt={items.id}/></Tab>
                   </TabPanel>
@@ -93,6 +94,27 @@ const GetBackWhips = data => {
                     itemSize: selectState.value
                   }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                 </div>
+                <div id="carouselExampleControls" className="carousel slide mb-5 mt-5" data-ride="carousel" data-interval="3000">
+              <div className="carousel-inner">
+                  {data.data.contentfulAccessory.productMorePhotos.slice(3, data.data.contentfulAccessory.productMorePhotos.length).map((items, index) => (
+                      <div key={items.id} className={`carousel-item ${index === 0 ? 'active': ''}`}>
+                        <img className="d-block w-100" src={items.fixed.src} alt={`Get back whip slide #${index + 1}`} />
+                      </div>
+                  ))}
+              </div>
+              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span style={{color: '#000', fontSize: '1.5rem'}}>
+                  <i className="fas fa-arrow-left" />
+                </span>
+              </a>
+              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span style={{color: '#000', fontSize: '1.5rem'}}>
+                  <i className="fas fa-arrow-right" />
+                </span>
+              </a>
+            </div>
             </div>
              
           </div>
