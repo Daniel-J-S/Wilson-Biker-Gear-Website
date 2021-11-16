@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../components/layout';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
@@ -8,15 +9,19 @@ import { graphql } from 'gatsby';
 import { productFilter } from '../utils/product-filter';
 import { processSizeAndPrice } from '../utils/process-size-and-price';
 
+import '../css/font-awesome.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../css/style.css';
+
 function ComingSoon() {
-  return (
+  return (  
       <div style={{
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'center', 
-          alignItems: 'center',
-          minHeight: '100vh'
-          }}>
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        minHeight: '100vh'
+      }}>
         <h1>COMING SOON</h1>
         <p>This website is under construction.</p>
       </div>
