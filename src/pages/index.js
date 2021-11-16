@@ -53,7 +53,7 @@ function AccessoryPost ({ data, linkData }) {
       {
         id: 1,
         name: 'White and Green w/ 14 Ball',
-        image: data[0].node.productMorePhotos[0],
+        image: data[0].node.productMorePhotos[3],
         rating: data[0].node.rating,
         price: 32.99,
         excerpt: data[0].node.description.childMarkdownRemark.excerpt,
@@ -62,7 +62,7 @@ function AccessoryPost ({ data, linkData }) {
       {
         id: 2,
         name: 'Black and Red w/ 8 Ball',
-        image: data[0].node.productMorePhotos[2],
+        image: data[0].node.productMorePhotos[4],
         rating: data[0].node.rating,
         price: 32.99,
         excerpt: data[0].node.description.childMarkdownRemark.excerpt,
@@ -71,7 +71,7 @@ function AccessoryPost ({ data, linkData }) {
       {
         id: 3,
         name: 'White and Blue w/ 10 Ball',
-        image: data[0].node.productMorePhotos[1],
+        image: data[0].node.productMorePhotos[5],
         rating: data[0].node.rating,
         price: 32.99,
         excerpt: data[0].node.description.childMarkdownRemark.excerpt,
@@ -113,9 +113,9 @@ function AccessoryPost ({ data, linkData }) {
 }
 
 const IndexPage = data => {
-  const mens = productFilter(data.data.allContentfulProduct.edges, 'Mens');
-  const ladies = productFilter(data.data.allContentfulProduct.edges, 'Ladies');
-  const whips = productFilter(data.data.allContentfulProduct.edges, 'Get Back Whips');
+  const mens = productFilter(data.data.allContentfulClothing.edges, 'Mens');
+  const ladies = productFilter(data.data.allContentfulClothing.edges, 'Ladies');
+  const whips = productFilter(data.data.allContentfulAccessory.edges, 'Get Back Whips');
 
   console.log(whips)
   return (
@@ -147,7 +147,7 @@ const IndexPage = data => {
         <div className="container mt-5 mb-5">
           <div>
             <Link className="text-dark" to="/get-back-whips">
-              <h3 className="text-center text-md-left">Get Back Whips</h3>
+              <h3 className="text-center text-md-left">"Get Back" Whips</h3>
             </Link>
           </div>
           <AccessoryPost linkData="get-back-whips" data={whips}></AccessoryPost>
@@ -177,7 +177,7 @@ export default IndexPage;
 
 export const query = graphql`
   query AboutQuery {
-    allContentfulProduct(sort:{fields:createdAt, order: DESC}){
+    allContentfulClothing(sort:{fields:createdAt, order: DESC}){
       edges{
         node{
           id
@@ -211,6 +211,49 @@ export const query = graphql`
             }
           }
           sizesAndPrices
+          description {
+            childMarkdownRemark {
+              excerpt(pruneLength: 140)
+            }
+          }
+        }
+      }
+    }
+    allContentfulAccessory(sort:{fields:createdAt, order: DESC}){
+      edges{
+        node{
+          id
+          name
+          slug
+          rating
+          price
+          discount
+          category {
+            name
+          }
+          image {
+            fluid(maxWidth: 1000) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+          productMorePhotos {
+            fluid(maxWidth: 1000) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+          variations
           description {
             childMarkdownRemark {
               excerpt(pruneLength: 140)

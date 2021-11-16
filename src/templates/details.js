@@ -121,7 +121,7 @@ export default ProductDetails;
 
 export const query = graphql`
   query ProductDetailsQuery($slug: String!) {
-    contentfulProduct(slug: {eq: $slug }) {
+    contentfulClothing(slug: {eq: $slug }) {
       id
       name
       slug
