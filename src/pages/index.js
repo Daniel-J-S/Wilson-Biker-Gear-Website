@@ -117,7 +117,6 @@ const IndexPage = data => {
   const ladies = productFilter(data.data.allContentfulClothing.edges, 'Ladies');
   const whips = productFilter(data.data.allContentfulAccessory.edges, 'Get Back Whips');
 
-  console.log(whips)
   return (
     <>
       <SEO 
