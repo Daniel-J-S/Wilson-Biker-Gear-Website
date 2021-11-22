@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
@@ -9,7 +9,21 @@ const GetBackWhips = data => {
   const [selectState, setSelectState] = useState({
     value: 'Choose Option',
     userSelection: false,
+    index: 0,
+    options: getOptionsString()
   });
+
+
+  function getOptionsString(option) {
+    const { contentfulAccessory: { variations }} = data.data;
+    const variationsCopy = [...variations];
+    if(option !== undefined) {
+      variationsCopy.splice(variationsCopy.indexOf(option), 1);
+      variationsCopy.unshift(option);
+      return variationsCopy.join('|');
+    }
+    return variationsCopy.join('|');
+  }
 
 
   function handleChange(e) {
@@ -17,8 +31,9 @@ const GetBackWhips = data => {
     setSelectState(prevState => ({
       ...prevState,
       value: e.target.value, 
+      index: e.target.selectedIndex,
       userSelection: true,
-
+      options: getOptionsString(e.target.value)
     }));
   }
 
@@ -70,7 +85,7 @@ const GetBackWhips = data => {
               <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px', width: '15em' }} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
                 {!selectState.userSelection && <option value="Choose Option">Choose Option</option> }
                 {data.data.contentfulAccessory.variations.map((v, i) => (
-                  <option key={i} value={v}>{v}</option>
+                  <option key={i} data-index={i} value={v}>{v}</option>
                 ))}
               </select>
             </div>
@@ -82,10 +97,10 @@ const GetBackWhips = data => {
                   style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulAccessory.slug}
-                  data-item-image={data.data.contentfulAccessory.image === null ? "" : data.data.contentfulAccessory.image.fixed.src}
+                  data-item-image={data.data.contentfulAccessory.image === null ? "" : data.data.contentfulAccessory.productMorePhotos[selectState.index].fixed.src}
                   data-item-price={data.data.contentfulAccessory.price}
-                  // data-item-custom1-name="Options"
-                  // data-item-custom1-options={selectState.options}
+                  data-item-custom1-name="Options"
+                  data-item-custom1-options={selectState.options}
                   data-item-name={data.data.contentfulAccessory.name}
                   data-item-url={data.data.contentfulAccessory.slug}
                   disabled={!selectState.userSelection}
