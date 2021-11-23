@@ -88,7 +88,7 @@ const ProductDetails = data => {
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.sizeAndPriceStr}
                   data-item-name={data.data.contentfulClothing.name}
-                  data-item-url={`/${data.data.contentfulClothing.slug}`}
+                  data-item-url={data.data.contentfulClothing.slug}
                   disabled={!selectState.userSelection}
                   >
                   <i className="fas fa-tags" />
