@@ -39,7 +39,7 @@ class IndexPost extends React.Component {
       <React.Fragment>
       <div className="row product-main">
         {data.data.allContentfulClothing.edges.slice(0, NoOfPost).map(items => {
-          const {3: minPrice, 4: maxPrice }  = processSizeAndPrice(items.node.sizesAndPrices);
+          const {4: minPrice, 3: maxPrice }  = processSizeAndPrice(items.node.sizesAndPrices);
           return (
           <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
           <div>
