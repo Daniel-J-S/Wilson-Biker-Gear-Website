@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
