@@ -82,7 +82,7 @@ const ProductDetails = data => {
                 <button
                   style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
-                  data-item-id={data.data.contentfulClothing.id}
+                  data-item-id={data.data.contentfulClothing.slug}
                   data-item-image={data.data.contentfulClothing.image === null ? "" : data.data.contentfulClothing.image.fixed.src}
                   data-item-price={selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}
                   data-item-custom1-name="Size"
