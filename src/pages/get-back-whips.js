@@ -102,7 +102,7 @@ const GetBackWhips = data => {
                   data-item-custom1-name="Options"
                   data-item-custom1-options={selectState.options}
                   data-item-name={data.data.contentfulAccessory.name}
-                  data-item-url={data.data.contentfulAccessory.slug}
+                  data-item-url={`/${data.data.contentfulAccessory.slug}`}
                   disabled={!selectState.userSelection}
                   >
                   <i className="fas fa-tags" />
