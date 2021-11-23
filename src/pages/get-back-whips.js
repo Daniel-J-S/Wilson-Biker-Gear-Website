@@ -96,7 +96,7 @@ const GetBackWhips = data => {
                 <button
                   style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
-                  data-item-id={data.data.contentfulAccessory.slug}
+                  data-item-id={data.data.contentfulAccessory.id}
                   data-item-image={data.data.contentfulAccessory.image === null ? "" : data.data.contentfulAccessory.productMorePhotos[selectState.index].fixed.src}
                   data-item-price={data.data.contentfulAccessory.price}
                   data-item-custom1-name="Options"
