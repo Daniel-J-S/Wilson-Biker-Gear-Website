@@ -41,7 +41,7 @@ strong{font-weight:inherit;font-weight:bolder}
 dfn{font-style:italic}
 h1{font-size:2em;margin:0.67em 0}
 mark{background-color:#ff0;color:#000}
-small{font-size:90%; font-family: Roboto; font-weight: 600; letter-spacing: .1rem;}
+small {font-size:90%; font-family: Roboto; font-weight: 600; letter-spacing: .1rem;}
 sub,
 sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sub{bottom:-0.25em}
@@ -174,7 +174,7 @@ pre tt:after{content:""}
 }
 
 .product-details small {
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
 }
 
 /* header css */
@@ -194,6 +194,14 @@ header nav ul.navbar-nav li a{color:#fff;}
 /* header css */
 footer.site-footer{background:#000000;padding:0;text-align:center;}
 footer.site-footer *{color:#fff;}
+
+footer small > a {
+  font-family: Roboto;
+}
+
+footer small > a:hover {
+  text-decoration: underline;
+}
 .social-links {
   display: flex;
   justify-content: center;
