@@ -7,6 +7,7 @@ import { processSizeAndPrice } from '../utils/process-size-and-price';
 
 const ProductDetails = data => {
   const [
+    weightCodes,
     lookup,
     prices,
     sizes,
@@ -19,6 +20,8 @@ const ProductDetails = data => {
     userSelection: false,
     sizeAndPriceStr,
   });
+
+  console.log(weightCodes)
 
   function handleChange(e) {
     e.persist()
@@ -90,6 +93,7 @@ const ProductDetails = data => {
                   data-item-name={data.data.contentfulClothing.name}
                   data-item-url={`/${data.data.contentfulClothing.slug}`}
                   disabled={!selectState.userSelection}
+                  data-item-weight={weightCodes[selectState.value]}
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
