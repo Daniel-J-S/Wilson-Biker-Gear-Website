@@ -15,6 +15,7 @@ class Footer extends Component {
                                     <ul id="menu-main" className="menu">
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/store">Store</Link></li>
+                                        <li><Link to="/terms-of-service">Terms of Service</Link></li>
                                         <li><Link to="/contact-us">Contact</Link></li>
                                     </ul>
                                 </div>
