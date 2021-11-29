@@ -94,6 +94,9 @@ const ProductDetails = data => {
                   data-item-url={`/${data.data.contentfulClothing.slug}`}
                   disabled={!selectState.userSelection}
                   data-item-weight={weightCodes[selectState.value]}
+                  data-item-height="1" 
+                  data-item-length="1" 
+                  data-item-width="1"
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
