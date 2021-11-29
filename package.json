@@ -1,9 +1,10 @@
+
 {
-  "name": "OneShopper",
+  "name": "danieljs-ecom-template",
   "private": true,
   "description": "E-Commerce site with Gatsby and React",
   "version": "0.1.0",
-  "author": "Rohit Gupta <rohitguptab33@gmail.com>",
+  "author": "DanielJS <hello@danieljs.io>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.4.0",
     "bootstrap": "^4.3.1",
