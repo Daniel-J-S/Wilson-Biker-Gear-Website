@@ -87,13 +87,13 @@ const ProductDetails = data => {
                   className="Product snipcart-add-item"
                   data-item-id={data.data.contentfulClothing.slug}
                   data-item-image={data.data.contentfulClothing.image === null ? "" : data.data.contentfulClothing.image.fixed.src}
-                  data-item-price={selectState.userSelection ? `${lookup[selectState.value]}` : minPrice}
+                  data-item-price={selectState.userSelection ? lookup[selectState.value] : minPrice}
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.sizeAndPriceStr}
                   data-item-name={data.data.contentfulClothing.name}
                   data-item-url={`/${data.data.contentfulClothing.slug}`}
                   disabled={!selectState.userSelection}
-                  data-item-weight={weightCodes[selectState.value]}
+                  data-item-weight={selectState.userSelection ? weightCodes[selectState.value] : 2}
                   data-item-height="1" 
                   data-item-length="1" 
                   data-item-width="1"
