@@ -37,7 +37,7 @@ const GetBackWhips = data => {
     }));
   }
 
-  const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=${lookup[selectState.value]}&weight=1`
+  const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=32.99&weight=1`
   return (
     <>
       <SEO 
