@@ -32,9 +32,12 @@ const ProductDetails = data => {
       sizeAndPriceStr: getSizePriceStr(e.target.value)
     }));
   }
+/*
+  data-item-url={`/.netlify/functions/store?id=${data.data.contentfulClothing.slug}&price=${}&url=https://wilson-biker-gear-test.netlify.app/${}`}
 
-
-  
+*/
+  const { slug } = data.data.contentfulClothing;
+  const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=${lookup[selectState.value]}`
   return (
     <>
       <SEO 
@@ -91,7 +94,7 @@ const ProductDetails = data => {
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.sizeAndPriceStr}
                   data-item-name={data.data.contentfulClothing.name}
-                  data-item-url={`/${data.data.contentfulClothing.slug}`}
+                  data-item-url={url}
                   disabled={!selectState.userSelection}
                   data-item-weight={selectState.userSelection ? weightCodes[selectState.value] : 2}
                   data-item-height="1" 
