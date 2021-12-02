@@ -3,7 +3,7 @@ exports.handler = async function ({ queryStringParameters }) {
     return {
       statusCode: 200,
       headers: {
-        'Content-type': 'Application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         id,
