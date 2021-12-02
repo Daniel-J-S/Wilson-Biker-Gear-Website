@@ -8,7 +8,9 @@ exports.handler = async function ({ queryStringParameters }) {
       body: JSON.stringify({
         id,
         price,
-        weight,
+        dimensions: {
+          weight
+        },
         url: `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${id}&price=${price}`
       }),
     };
