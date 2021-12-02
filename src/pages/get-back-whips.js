@@ -36,8 +36,10 @@ const GetBackWhips = data => {
       options: getOptionsString(e.target.value)
     }));
   }
-
+  
+  const { slug } = data.data.contentfulAccessory.slug;
   const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=32.99&weight=1`
+
   return (
     <>
       <SEO 
