@@ -2,6 +2,9 @@ exports.handler = async function ({ queryStringParameters }) {
     const { id, price } = queryStringParameters;
     return {
       statusCode: 200,
+      headers: {
+        'Content-type': 'Application/json'
+      },
       body: JSON.stringify({
         id,
         price,

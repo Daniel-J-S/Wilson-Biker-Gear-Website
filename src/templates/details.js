@@ -97,9 +97,6 @@ const ProductDetails = data => {
                   data-item-url={url}
                   disabled={!selectState.userSelection}
                   data-item-weight={selectState.userSelection ? weightCodes[selectState.value] : 2}
-                  data-item-height="1" 
-                  data-item-length="1" 
-                  data-item-width="1"
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
