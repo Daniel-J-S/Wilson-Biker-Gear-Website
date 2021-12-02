@@ -637,6 +637,9 @@ p {
   .blogs-page .post-thumbnail .gatsby-image-wrapper{height:auto;}
   .snipcart-add-item{padding:10px 10px;}
   div.site-About, .Contact-us, .details-page, .store-Policies { padding: 1rem !important; width: 100%;}
+  div.site-About img {
+    width: 100%;
+  }
   .details-page select { display: block; margin: 1.7rem 0 !important;}
   ul.navbar-nav {display: flex; justify-content: space-between; margin: 0;}
   ul.navbar-nav li {margin: 0 !important;}

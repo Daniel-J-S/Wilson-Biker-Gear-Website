@@ -79,6 +79,7 @@ const ProductDetails = data => {
 
               
               <div className="col-sm-12 col-md-12 text-left">
+                <p style={{fontStyle: 'italic', fontSize: '.8rem'}} className="mt-2 mb-4">Shipping costs may vary based on volume</p>
                 <div className="row container mb-3">
                 <button
                   style={{opacity: !selectState.userSelection ? .5: 1}}
