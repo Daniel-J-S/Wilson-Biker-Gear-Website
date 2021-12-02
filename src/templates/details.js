@@ -21,7 +21,6 @@ const ProductDetails = data => {
     sizeAndPriceStr,
   });
 
-  console.log(weightCodes)
 
   function handleChange(e) {
     e.persist()
