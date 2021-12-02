@@ -10,8 +10,8 @@ exports.handler = async function ({ queryStringParameters }) {
         price,
         dimensions: {
           weight,
-          height: 0,
-          length: 0
+          // height: "",
+          // length: ""
         },
         url: `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${id}&price=${price}`
       }),
