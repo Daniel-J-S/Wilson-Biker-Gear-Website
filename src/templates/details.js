@@ -32,10 +32,6 @@ const ProductDetails = data => {
       sizeAndPriceStr: getSizePriceStr(e.target.value)
     }));
   }
-/*
-  data-item-url={`/.netlify/functions/store?id=${data.data.contentfulClothing.slug}&price=${}&url=https://wilson-biker-gear-test.netlify.app/${}`}
-
-*/
   const { slug } = data.data.contentfulClothing;
   const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=${lookup[selectState.value]}&weight=${selectState.userSelection ? weightCodes[selectState.value] : 2}`
   return (

@@ -34,7 +34,6 @@ class IndexPost extends React.Component {
 
     const { data } = this.props;
     const { NoOfPost } = this.state;
-
     return (
       <React.Fragment>
       <div className="row product-main">

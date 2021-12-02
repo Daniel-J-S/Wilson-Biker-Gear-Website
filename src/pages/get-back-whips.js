@@ -37,7 +37,7 @@ const GetBackWhips = data => {
     }));
   }
 
-
+  const url = `https://wilson-biker-gear-test.netlify.app/.netlify/functions/store?id=${slug}&price=${lookup[selectState.value]}&weight=${selectState.userSelection ? weightCodes[selectState.value] : 2}`
   return (
     <>
       <SEO 
@@ -102,7 +102,8 @@ const GetBackWhips = data => {
                   data-item-custom1-name="Options"
                   data-item-custom1-options={selectState.options}
                   data-item-name={data.data.contentfulAccessory.name}
-                  data-item-url={`/${data.data.contentfulAccessory.slug}`}
+                  data-item-url={url}
+                  data-item-weight={1}
                   disabled={!selectState.userSelection}
                   >
                   <i className="fas fa-tags" />
