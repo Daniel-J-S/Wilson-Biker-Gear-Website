@@ -43,6 +43,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,6 +68,7 @@ module.exports = {
       options: {
         apiKey: snipcart,
         autopop: true,
+        language: null
       },
     },
   ],

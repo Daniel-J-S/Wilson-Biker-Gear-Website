@@ -34,12 +34,11 @@ class IndexPost extends React.Component {
 
     const { data } = this.props;
     const { NoOfPost } = this.state;
-
     return (
       <React.Fragment>
       <div className="row product-main">
-        {data.data.allContentfulProduct.edges.slice(0, NoOfPost).map(items => {
-          const {3: minPrice, 4: maxPrice }  = processSizeAndPrice(items.node.sizesAndPrices);
+        {data.data.allContentfulClothing.edges.slice(0, NoOfPost).map(items => {
+          const {5: minPrice, 4: maxPrice }  = processSizeAndPrice(items.node.sizesAndPrices);
           return (
           <Link key={items.node.id} className="Catalogue__item col-sm-12 col-md-6 col-lg-4" to={`/${items.node.slug}`}>
           <div>
@@ -95,7 +94,7 @@ export default IndexPage;
 
 export const query = graphql`
   query LadiesQuery {
-    allContentfulProduct (filter: {category: {name: {eq: "Ladies"}}}) {
+    allContentfulClothing (filter: {category: {name: {eq: "Ladies"}}}) {
       edges{
         node{
           id

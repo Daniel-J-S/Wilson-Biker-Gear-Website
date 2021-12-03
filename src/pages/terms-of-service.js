@@ -2,29 +2,29 @@ import React from 'react';
 import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 
-function About({
+function StorePolicy({
         data: {
-            aboutUs
+            terms
         },
         location
     }) {
         return ( 
             <>
             <SEO 
-                title="About" 
-                keywords={[`about us`, `our story`, `leather goods`, `biker gear`, `vests`]} 
+                title="Store Policy" 
+                keywords={[`returns`, `store policies`, `terms of service`, `biker gear`, `vests`]} 
                 description="40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time."
                 location={location}
             />
-            <div className="site-About">
+            <div className="store-Policies">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="container">
-                                <h1 className="text-center mt-5 mb-5">{aboutUs.name}</h1>
+                                <h1 className="text-center mt-5 mb-5">{terms.name}</h1>
                                 <div
                                     dangerouslySetInnerHTML={{
-                                    __html: aboutUs.body.childMarkdownRemark.html
+                                    __html: terms.body.childMarkdownRemark.html
                                     }}
                                 />
                             </div> 
@@ -37,8 +37,8 @@ function About({
 }
 
 export const query = graphql`
-query AboutPageQuery {
-    aboutUs: contentfulPageInfoSection(name: {eq: "About Us"}) {
+query StorePolicyQuery {
+    terms: contentfulPageInfoSection(name: {eq: "TERMS OF SERVICE"}) {
       body {
         childMarkdownRemark {
           html
@@ -48,5 +48,4 @@ query AboutPageQuery {
     }
 }`;
 
-export default About;
-
+export default StorePolicy;

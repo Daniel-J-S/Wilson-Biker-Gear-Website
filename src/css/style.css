@@ -41,7 +41,7 @@ strong{font-weight:inherit;font-weight:bolder}
 dfn{font-style:italic}
 h1{font-size:2em;margin:0.67em 0}
 mark{background-color:#ff0;color:#000}
-small{font-size:80%}
+small {font-size:90%; font-family: Roboto; font-weight: 600; letter-spacing: .1rem;}
 sub,
 sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sub{bottom:-0.25em}
@@ -169,6 +169,14 @@ pre tt:after{content:""}
 .snipcart-add-item{border:1px solid #07bb07;padding:10px 15px;display:inline-block;font-size:12px;color:#fff!important;border-radius:5px;font-weight:600;background:#07bb07;text-decoration:none!important;text-transform:uppercase;}
 .product-details .gatsby-image-wrapper{height:500px;}
 
+.product-details *:not(.product-details h2, i) {
+  font-family: Roboto;
+}
+
+.product-details small {
+  font-size: 1rem !important;
+}
+
 /* header css */
 header.site-header{width:100%;background:#000000;z-index:9;padding:20px 0;}
 ul.navbar-nav.mr-auto li{margin-bottom:0;}
@@ -186,6 +194,14 @@ header nav ul.navbar-nav li a{color:#fff;}
 /* header css */
 footer.site-footer{background:#000000;padding:0;text-align:center;}
 footer.site-footer *{color:#fff;}
+
+footer small > a {
+  font-family: Roboto;
+}
+
+footer small > a:hover {
+  text-decoration: underline;
+}
 .social-links {
   display: flex;
   justify-content: center;
@@ -312,7 +328,10 @@ a.header-logo img{margin:0;width:220px;}
 .site-footer .menu-main-container ul li .sub-menu{display:none}
 .site-footer  ul{margin-bottom:0;}
 .site-info ul {list-style: none !important;}
-.site-About, .Contact-us {min-height: 75vh; padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
+.site-About, .Contact-us, .store-Policies {min-height: 75vh; padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
+.store-Policies h2 {
+  font-family: 'Roboto', sans-serif !important;
+}
 .details-page {padding: 2.5rem 5rem; max-width: 55rem; margin: auto;}
 footer.site-footer ul{margin:0;}
 .main-container, .snipcart-modal__container {
@@ -617,7 +636,10 @@ p {
   ul.blog-list li .post-item .post-thumbnail .gatsby-image-wrapper{height:200px;}
   .blogs-page .post-thumbnail .gatsby-image-wrapper{height:auto;}
   .snipcart-add-item{padding:10px 10px;}
-  div.site-About, .Contact-us, .details-page { padding: 1rem !important; width: 100%;}
+  div.site-About, .Contact-us, .details-page, .store-Policies { padding: 1rem !important; width: 100%;}
+  div.site-About img {
+    width: 100%;
+  }
   .details-page select { display: block; margin: 1.7rem 0 !important;}
   ul.navbar-nav {display: flex; justify-content: space-between; margin: 0;}
   ul.navbar-nav li {margin: 0 !important;}
