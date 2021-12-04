@@ -31,6 +31,7 @@ const ProductDetails = data => {
       sizeAndPriceStr: getSizePriceStr(e.target.value)
     }));
   }
+
   const { slug } = data.data.contentfulClothing;
   const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[selectState.value]}&weight=${selectState.userSelection ? weightCodes[selectState.value] : 2}`
   return (
@@ -99,12 +100,17 @@ const ProductDetails = data => {
                 </button> 
                 </div>
                 <div className="row container mt-3">
-                  <Link
-                  state={{ 
-                    itemName: data.data.contentfulClothing.name,
-                    itemPrice: lookup[selectState.value],
-                    itemSize: selectState.value
-                  }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
+                  {
+                    selectState.userSelection ?
+                    <Link
+                    state={{ 
+                      itemName: data.data.contentfulClothing.name,
+                      itemPrice: lookup[selectState.value],
+                      itemSize: selectState.value
+                    }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
+                    :
+                    <Link className="btn btn-primary" to="/contact-us">Contact Us</Link>
+                  }
                 </div>
             </div>
              
