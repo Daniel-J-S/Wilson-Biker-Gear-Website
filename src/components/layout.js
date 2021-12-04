@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './header';
 import Footer from './footer';
 
-/*
+
 
 if(typeof window !== "undefined") {
   alert(`🚧 ATTENTION: This site is currently under construction 🚧
@@ -15,7 +15,7 @@ if(typeof window !== "undefined") {
   Thank you!
   `);
 }
-*/
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
