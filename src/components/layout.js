@@ -7,15 +7,6 @@ import Footer from './footer';
 
 
 
-if(typeof window !== "undefined") {
-  alert(`🚧 ATTENTION: This site is currently under construction 🚧
-  Purchasing from the store has been temporarily disabled for now
-  Please come back at a later time or call us at
-  
-  Thank you!
-  `);
-}
-
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
