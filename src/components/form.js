@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
+import { useEffect } from 'react';
 
-function Form({ message }) {
+function Form(props) {
     const [state, setState] = useState({
         name: "",
         email: "",
-        message: message ? message : "",
+        message: "",
         formSubmitted: false
     });
 
@@ -38,7 +39,17 @@ function Form({ message }) {
             });
             navigate('/');
             }, 3000)
+    }
+
+    useEffect(() => {
+        if(props.message) {
+            setState(prevState => ({
+                ...prevState,
+                message: props.message
+            }))
         }
+    }, [props.message])
+    
     return (
         <>
             {state.formSubmitted ? <div className="text-center"><h2>Thank you for contacting us!</h2></div> :
@@ -54,7 +65,7 @@ function Form({ message }) {
                     </div>
                     <div>
                         <label>Message: 
-                        <textarea placeholder="Howdy!" defaultValue={state.message} name="message" required>
+                        <textarea placeholder="Howdy!" name="message" value={state.message} onChange={handleChange} required>
                         </textarea></label>
                     </div>
                     <div>
