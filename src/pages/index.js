@@ -130,16 +130,17 @@ const IndexPage = data => {
         <div className="text-center"><h2 className="main-title with-underline">Best Sellers</h2></div>
       </div>
       {
-        ladies.length > 0 &&
+        mens.length > 0 &&
         <div className="container mt-5 mb-5">
           <div>
-            <Link className="text-dark" to="/ladies">
-              <h3 className="text-center text-md-left">Ladies Apparel</h3>
+            <Link className="text-dark" to="/mens">
+              <h3 className="text-center text-md-left">Mens Apparel</h3>
             </Link>
           </div>
-          <IndexPost linkData="ladies" data={ladies}></IndexPost>
+          <IndexPost linkData="mens" data={mens}></IndexPost>
         </div>
       }
+
       <div style={{margin: '7rem 0'}} />
       {
         whips.length > 0 &&
@@ -154,14 +155,14 @@ const IndexPage = data => {
       }
       <div style={{margin: '7rem 0'}} />
       {
-        mens.length > 0 &&
+        ladies.length > 0 &&
         <div className="container mt-5 mb-5">
           <div>
-            <Link className="text-dark" to="/mens">
-              <h3 className="text-center text-md-left">Mens Apparel</h3>
+            <Link className="text-dark" to="/ladies">
+              <h3 className="text-center text-md-left">Ladies Apparel</h3>
             </Link>
           </div>
-          <IndexPost linkData="mens" data={mens}></IndexPost>
+          <IndexPost linkData="ladies" data={ladies}></IndexPost>
         </div>
       }
       <div style={{margin: '7rem 0'}} />
