@@ -22,8 +22,8 @@ export default function Banner ({ BannerData }) {
 
 
     const messages = {
-      0: 'Holiday Closure: December 25th, 26th & 27th',
-      1: 'Vacation Closure: January 1st - 10th',
+      0: 'Holiday Closure: Dec 25th, 26th & 27th',
+      1: 'Vacation Closure: Jan 1st - 10th',
     }
 
     const handleTick = () => {
