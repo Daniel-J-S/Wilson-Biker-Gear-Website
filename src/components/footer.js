@@ -42,11 +42,10 @@ class Footer extends Component {
                                     </a>
                                     <a href="tel:8173860631">(817) 386-0631</a>
                                 </address>
-                             
                                 <p className="mt-5 mb-3"><strong>Hours of Operation</strong></p>
                                 <ul>
-                                    <li>Tues - Sat: 9 AM - 5 PM</li>
-                                    <li>Sun - Mon: CLOSED</li>
+                                    <li>Weds - Sun: 9 AM - 5 PM</li>
+                                    <li>Mon - Tues: CLOSED</li>
                                 </ul>
                             </div>
                         </div>

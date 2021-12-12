@@ -653,3 +653,49 @@ p {
 }
 
 
+.scroll-container {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding-top: .2rem;
+  background-color: rgb(244, 233, 176);
+  height: 2rem; 
+  overflow: hidden;
+}
+
+
+.scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: scroll 17s linear infinite;
+  -webkit-animation: scroll 17s linear infinite;
+  animation: scroll 17s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes scroll {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes scroll {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes scroll {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
