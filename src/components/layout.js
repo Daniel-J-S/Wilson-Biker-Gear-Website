@@ -7,7 +7,7 @@ import Footer from './footer';
 
 
 const Layout = ({ children }) => { 
-  if(isBrowser) {
+  if(typeof window !== 'undefined') {
     window.alert(`
     🚨 Please Be Advised:
     This is a test site and is only used
