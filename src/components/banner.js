@@ -11,10 +11,10 @@ export default function Banner ({ BannerData }) {
     const messageRef = useRef();
     
     const settings = {
-      dots: false,
+      dots: true,
       speed: 3500,
-      infinite: false,
-      autoplay: false,
+      infinite: true,
+      autoplay: true,
       autoplaySpeed: 5000,
       slidesToShow: 1,
       slidesToScroll: 1
