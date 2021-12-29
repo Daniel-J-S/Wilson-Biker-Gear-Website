@@ -22,7 +22,7 @@ export default function Banner ({ BannerData }) {
 
 
     const messages = {
-      0: 'Holiday Closure: Dec 25th, 26th & 27th',
+      0: 'Vacation Closure: Jan 1st - 10th',
       1: 'Vacation Closure: Jan 1st - 10th',
     }
 
