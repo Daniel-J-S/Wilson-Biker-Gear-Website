@@ -17,6 +17,7 @@ class Footer extends Component {
                                         <li><Link to="/store">Store</Link></li>
                                         <li><Link to="/terms-of-service">Terms of Service</Link></li>
                                         <li><Link to="/contact-us">Contact</Link></li>
+                                        <li><Link className="snipcart-customer-signin" to="/#/signin?returnUrl=%2Fdashboard">My Account</Link></li>
                                     </ul>
                                 </div>
                             </section>
