@@ -63,7 +63,7 @@ function SEO({ description, lang, meta, keywords, title, location }) {
         },
         {
           property: `og:image`,
-          content: `https://wilson-biker-gear-test.netlify.app/${ogImage}`,
+          content: `https://wilsonbikergear.com/${ogImage}`,
         },
       ]
         .concat(
