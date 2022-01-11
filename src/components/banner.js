@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+// Uncomment to display banner import React, { useState, useEffect, useRef } from 'react';
+import React  from 'react';
 import Slider from 'react-slick';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
@@ -6,19 +7,21 @@ import { Link } from 'gatsby';
 
 
 export default function Banner ({ BannerData }) {
+  const settings = {
+    dots: true,
+    speed: 3500,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+  /*
+    Uncomment to display banner
     const [ message, setMessage ] = useState(0);
 
     const messageRef = useRef();
     
-    const settings = {
-      dots: true,
-      speed: 3500,
-      infinite: true,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
 
 
     const messages = {
@@ -42,16 +45,19 @@ export default function Banner ({ BannerData }) {
         clearInterval(timerId)
       }
     }, []);
-
+    */
     return (
       <div className="slider-section">
-        <div className="scroll-container">
-          <p className="scroll-text" key={message}>
-            <small>
-              {messages[message]}
-            </small>
-          </p>
-        </div>
+        {/* 
+          Uncomment to display Banner
+          <div className="scroll-container">
+            <p className="scroll-text" key={message}>
+              <small>
+                {messages[message]}
+              </small>
+            </p>
+          </div> 
+        */}
         <Slider {...settings}>
           {BannerData.map((items, i) => (
             <div key={i} className="item">
