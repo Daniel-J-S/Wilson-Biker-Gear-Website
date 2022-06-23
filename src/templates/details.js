@@ -19,8 +19,8 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
     minPrice,
     sizeAndPriceStr, getSizePriceStr] = processSizeAndPrice(contentfulClothing.sizesAndPrices);
   
-  const [selectState, setSelectState] = useState({
-    value: 'Choose Size',
+  const [sizeState, setSizeState] = useState({
+    value: '',
     userSelection: false,
     sizeAndPriceStr,
   });
@@ -39,7 +39,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
   function handleChange(e) {
     e.persist();
-    setSelectState(prevState => ({
+    setSizeState(prevState => ({
       ...prevState,
       value: e.target.value, 
       userSelection: true,
@@ -71,7 +71,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
 
   const { slug } = contentfulClothing;
-  const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[selectState.value]}&weight=${selectState.userSelection ? weightCodes[selectState.value] : 2}`
+  const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[sizeState.value]}&weight=${sizeState.userSelection ? weightCodes[sizeState.value] : 2}`
   return (
     <>
       <SEO 
@@ -107,12 +107,12 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
           />
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
-              <span className="price">{selectState.userSelection ? `$${lookup[selectState.value]}` : <small style={{fontSize: '.8rem'}}>{`$${minPrice} - $${maxPrice}`}</small>}</span>
+              <span className="price">{sizeState.userSelection ? `$${lookup[sizeState.value]}` : <small style={{fontSize: '.8rem'}}>{`$${minPrice} - $${maxPrice}`}</small>}</span>
               
-              <select value={selectState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
-                {!selectState.userSelection && <option value="Choose Size">Choose Size</option> }
+              <select value={sizeState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                {!sizeState.userSelection && <option value="Choose Size">Choose Size</option> }
                 {sizes.map((s, i) => (
-                  <option key={i} value={s}>{selectState.value === s ? s : `${s} - $${prices[i]}`}</option>
+                  <option key={i} value={s}>{sizeState.value === s ? s : `${s} - $${prices[i]}`}</option>
                 ))}
               </select>
               {
@@ -130,19 +130,19 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
                 <p style={{fontStyle: 'italic', fontSize: '.8rem'}} className="mt-2 mb-4">Shipping costs may vary based on volume</p>
                 <div className="row container mb-3">
                 <button
-                  style={{opacity: !selectState.userSelection ? .5: 1}}
+                  style={{opacity: !sizeState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
                   data-item-id={contentfulClothing.slug}
                   data-item-image={photos.selectedPhoto === null ? "" : photos.selectedPhoto.fixed.src}
-                  data-item-price={selectState.userSelection ? lookup[selectState.value] : minPrice}
+                  data-item-price={sizeState.userSelection ? lookup[sizeState.value] : minPrice}
                   data-item-custom1-name="Size"
-                  data-item-custom1-options={selectState.sizeAndPriceStr}
+                  data-item-custom1-options={sizeState.sizeAndPriceStr}
                   data-item-custom2-name={colorState.colorsStr ? "Colors": null}
                   data-item-custom2-options={colorState.colorsStr ? colorState.colorsStr: null }
                   data-item-name={contentfulClothing.name}
                   data-item-url={url}
-                  disabled={!selectState.userSelection}
-                  data-item-weight={selectState.userSelection ? weightCodes[selectState.value] : 2}
+                  disabled={!sizeState.userSelection}
+                  data-item-weight={sizeState.userSelection ? weightCodes[sizeState.value] : 2}
                   >
                   <i className="fas fa-tags" />
                   Add to Cart
@@ -150,12 +150,12 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
                 </div>
                 <div className="row container mt-3">
                   {
-                    selectState.userSelection ?
+                    sizeState.userSelection ?
                     <Link
                     state={{ 
                       itemName: contentfulClothing.name,
-                      itemPrice: lookup[selectState.value],
-                      itemSize: selectState.value
+                      itemPrice: lookup[sizeState.value],
+                      itemSize: sizeState.value
                     }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
                     :
                     <Link className="btn btn-primary" to="/contact-us">Contact Us</Link>
