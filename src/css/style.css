@@ -664,15 +664,15 @@ p {
 }
 
 
-.scroll-text {
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  
-  -moz-animation: scroll 17s linear infinite;
-  -webkit-animation: scroll 17s linear infinite;
-  animation: scroll 17s linear infinite;
+.blink {
+  text-align: center;
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 /* for Firefox */
