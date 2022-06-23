@@ -35,7 +35,6 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
   const [photos, setPhotos] = useState({
     selectedPhoto: contentfulClothing.image,
-    // morePhotos: contentfulClothing.productMorePhotos
   });
 
   const [ tabIndex, setTabIndex ] = useState(0);
@@ -57,7 +56,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
     e.persist();
     
     const filteredPhoto = contentfulClothing.productMorePhotos.find(p => p.description === e.target.value);
-    const filteredPhotoIndex = contentfulClothing.productMorePhotos.findIndex(p => p.id === filteredPhoto.id);
+    const filteredPhotoIndex = contentfulClothing.productMorePhotos.findIndex(p => p.fixed === filteredPhoto.fixed);
     
     setTabIndex(filteredPhotoIndex);
 
@@ -76,7 +75,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
 
   const { slug } = contentfulClothing;
-  const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[sizeState.value]}&weight=${sizeState.userSelection ? weightCodes[sizeState.value] : 2}`
+  const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[sizeState.value]}&weight=${sizeState.userSelection ? weightCodes[sizeState.value] : 2}${colorState.value && `&color=${colorState.value}`}`
 
   return (
     <>
@@ -140,9 +139,8 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
                   data-item-price={sizeState.userSelection ? lookup[sizeState.value] : minPrice}
                   data-item-custom1-name="Size"
                   data-item-custom1-options={sizeState.sizeAndPriceStr}
-                  data-item-custom2-name={colorState.colorsStr ? "Colors": null}
-                  data-item-custom2-options={colorState.colorsStr ? colorState.colorsStr: null }
-                  data-item-name={contentfulClothing.name}
+                  data-item-name={colorState.value ? `${contentfulClothing.name} (${colorState.value})` : contentfulClothing.name}
+                  data-item-color={colorState.value ? colorState.value : null}
                   data-item-url={url}
                   disabled={!sizeState.userSelection}
                   data-item-weight={sizeState.userSelection ? weightCodes[sizeState.value] : 2}
