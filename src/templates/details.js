@@ -9,7 +9,6 @@ import { processColors } from '../utils/process-colors';
 
 
 const ProductDetails = ({ data }) => {
-  console.log(data.contentfulClothing.productMorePhotos)
   const colorsStr = processColors(data.contentfulClothing.colors);
   const [
     weightCodes,
@@ -32,6 +31,11 @@ const ProductDetails = ({ data }) => {
     colorsStr,
   });
 
+  const [photos, setPhotos] = useState({
+    selectedPhoto: data.contentfulClothing.image,
+    morePhotos: data.contentfulClothing.productMorePhotos
+  })
+
 
   function handleChange(e) {
     e.persist();
@@ -45,6 +49,17 @@ const ProductDetails = ({ data }) => {
 
   function handleColorChange(e) {
     e.persist();
+    
+    const filteredPhoto = photos.morePhotos.find(p => p.description === e.target.value);
+    const filteredPhotos = photos.morePhotos.filter(p => p.description !== e.target.value);
+    
+    filteredPhotos.unshift(filteredPhoto)
+    
+    setPhotos({
+      selectedPhoto: filteredPhoto,
+      morePhotos: filteredPhotos
+    });
+
     setColorState(prevState => ({
       ...prevState,
       value: e.target.value, 
@@ -68,16 +83,16 @@ const ProductDetails = ({ data }) => {
       <div className="container details-page mb-5">
         <div className="product-details">
           <div className="Product-Screenshot">
-            {data.contentfulClothing.productMorePhotos === null ? <div className="no-image">No Image</div> :
+            {photos.morePhotos === null ? <div className="no-image">No Image</div> :
               <Tabs>
-                {data.contentfulClothing.productMorePhotos.map(items => (
-                  <TabPanel key={items.id}>
-                    <Tab><img src={items.fixed.src} alt={items.id}/></Tab>
+                {photos.morePhotos.map(photo => (
+                  <TabPanel key={photo.id}>
+                    <Tab><img src={photo.fixed.src} alt={photo.id}/></Tab>
                   </TabPanel>
                 ))}
                 <TabList>
-                  {data.contentfulClothing.productMorePhotos.map(items => (
-                    <Tab key={items.id}><img src={items.fixed.src} alt={items.id}/></Tab>
+                  {photos.morePhotos.map(photo => (
+                    <Tab key={photo.id}><img src={photo.fixed.src} alt={photo.id}/></Tab>
                   ))}
                 </TabList>
               </Tabs>}
@@ -116,7 +131,7 @@ const ProductDetails = ({ data }) => {
                   style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
                   data-item-id={data.contentfulClothing.slug}
-                  data-item-image={data.contentfulClothing.image === null ? "" : data.contentfulClothing.image.fixed.src}
+                  data-item-image={photos.selectedPhoto === null ? "" : photos.selectedPhoto.fixed.src}
                   data-item-price={selectState.userSelection ? lookup[selectState.value] : minPrice}
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.sizeAndPriceStr}
