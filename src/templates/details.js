@@ -9,7 +9,9 @@ import { processColors } from '../utils/process-colors';
 
 
 const ProductDetails = ({ data: { contentfulClothing }, location }) => {
+  
   const colorsStr = processColors(contentfulClothing.colors);
+  
   const [
     weightCodes,
     lookup,
@@ -34,17 +36,19 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
   const [photos, setPhotos] = useState({
     selectedPhoto: contentfulClothing.image,
     morePhotos: contentfulClothing.productMorePhotos
-  })
+  });
 
 
-  function handleChange(e) {
+  function handleSizeChange(e) {
     e.persist();
+
     setSizeState(prevState => ({
       ...prevState,
       value: e.target.value, 
       userSelection: true,
       sizeAndPriceStr: getSizePriceStr(e.target.value)
     }));
+
   }
 
   function handleColorChange(e) {
@@ -72,6 +76,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
   const { slug } = contentfulClothing;
   const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[sizeState.value]}&weight=${sizeState.userSelection ? weightCodes[sizeState.value] : 2}`
+
   return (
     <>
       <SEO 
@@ -109,7 +114,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
             <div className="col-sm-4 col-md-3">
               <span className="price">{sizeState.userSelection ? `$${lookup[sizeState.value]}` : <small style={{fontSize: '.8rem'}}>{`$${minPrice} - $${maxPrice}`}</small>}</span>
               
-              <select value={sizeState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleChange} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+              <select value={sizeState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleSizeChange} onBlur={handleSizeChange} className="form-select form-select-lg mb-3 mt-3">
                 {!sizeState.userSelection && <option value="Choose Size">Choose Size</option> }
                 {sizes.map((s, i) => (
                   <option key={i} value={s}>{sizeState.value === s ? s : `${s} - $${prices[i]}`}</option>
@@ -117,15 +122,12 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
               </select>
               {
                 contentfulClothing.colors &&
-                <select onChange={handleColorChange} value={colorState.value} style={{padding: '.3rem', borderRadius: '7px'}} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                <select onChange={handleColorChange} value={colorState.value} style={{padding: '.3rem', borderRadius: '7px'}} onBlur={handleColorChange} className="form-select form-select-lg mb-3 mt-3">
                   {!colorState.userSelection && <option value="Choose Color">Choose Color</option> }
                   {contentfulClothing.colors.map((d, i) => <option key={i} value={d}>{d}</option>)}
                 </select>
               }
-
             </div>
-
-              
               <div className="col-sm-12 col-md-12 text-left">
                 <p style={{fontStyle: 'italic', fontSize: '.8rem'}} className="mt-2 mb-4">Shipping costs may vary based on volume</p>
                 <div className="row container mb-3">
@@ -162,7 +164,6 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
                   }
                 </div>
             </div>
-             
           </div>
           <div
             dangerouslySetInnerHTML={{
