@@ -35,8 +35,10 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
 
   const [photos, setPhotos] = useState({
     selectedPhoto: contentfulClothing.image,
-    morePhotos: contentfulClothing.productMorePhotos
+    // morePhotos: contentfulClothing.productMorePhotos
   });
+
+  const [ tabIndex, setTabIndex ] = useState(0);
 
 
   function handleSizeChange(e) {
@@ -54,14 +56,13 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
   function handleColorChange(e) {
     e.persist();
     
-    const filteredPhoto = photos.morePhotos.find(p => p.description === e.target.value);
-    const filteredPhotos = photos.morePhotos.filter(p => p.description !== e.target.value);
+    const filteredPhoto = contentfulClothing.productMorePhotos.find(p => p.description === e.target.value);
+    const filteredPhotoIndex = contentfulClothing.productMorePhotos.findIndex(p => p.id === filteredPhoto.id);
     
-    filteredPhotos.unshift(filteredPhoto)
-    
+    setTabIndex(filteredPhotoIndex);
+
     setPhotos({
       selectedPhoto: filteredPhoto,
-      morePhotos: filteredPhotos
     });
 
     setColorState(prevState => ({
@@ -88,15 +89,15 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
       <div className="container details-page mb-5">
         <div className="product-details">
           <div className="Product-Screenshot">
-            {photos.morePhotos === null ? <div className="no-image">No Image</div> :
-              <Tabs>
-                {photos.morePhotos.map(photo => (
+            {contentfulClothing.productMorePhotos === null ? <div className="no-image">No Image</div> :
+              <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                {contentfulClothing.productMorePhotos.map(photo => (
                   <TabPanel key={photo.id}>
                     <Tab><img src={photo.fixed.src} alt={photo.id}/></Tab>
                   </TabPanel>
                 ))}
                 <TabList>
-                  {photos.morePhotos.map(photo => (
+                  {contentfulClothing.productMorePhotos.map(photo => (
                     <Tab key={photo.id}><img src={photo.fixed.src} alt={photo.id}/></Tab>
                   ))}
                 </TabList>
