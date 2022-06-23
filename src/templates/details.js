@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StarRatingComponent from 'react-star-rating-component';
 import { graphql, Link } from 'gatsby';
@@ -8,8 +8,8 @@ import { processColors } from '../utils/process-colors';
 
 
 
-const ProductDetails = ({ data }) => {
-  const colorsStr = processColors(data.contentfulClothing.colors);
+const ProductDetails = ({ data: { contentfulClothing }, location }) => {
+  const colorsStr = processColors(contentfulClothing.colors);
   const [
     weightCodes,
     lookup,
@@ -17,7 +17,7 @@ const ProductDetails = ({ data }) => {
     sizes,
     maxPrice,
     minPrice,
-    sizeAndPriceStr, getSizePriceStr] = processSizeAndPrice(data.contentfulClothing.sizesAndPrices);
+    sizeAndPriceStr, getSizePriceStr] = processSizeAndPrice(contentfulClothing.sizesAndPrices);
   
   const [selectState, setSelectState] = useState({
     value: 'Choose Size',
@@ -32,8 +32,8 @@ const ProductDetails = ({ data }) => {
   });
 
   const [photos, setPhotos] = useState({
-    selectedPhoto: data.contentfulClothing.image,
-    morePhotos: data.contentfulClothing.productMorePhotos
+    selectedPhoto: contentfulClothing.image,
+    morePhotos: contentfulClothing.productMorePhotos
   })
 
 
@@ -64,21 +64,21 @@ const ProductDetails = ({ data }) => {
       ...prevState,
       value: e.target.value, 
       userSelection: true,
-      colorsStr: processColors(data.contentfulClothing.colors, e.target.value)
+      colorsStr: processColors(contentfulClothing.colors, e.target.value)
     }));
   }
 
 
 
-  const { slug } = data.contentfulClothing;
+  const { slug } = contentfulClothing;
   const url = `https://wilsonbikergear.com/.netlify/functions/checkout?id=${slug}&price=${lookup[selectState.value]}&weight=${selectState.userSelection ? weightCodes[selectState.value] : 2}`
   return (
     <>
       <SEO 
-        title={data.contentfulClothing.name} 
-        keywords={[`Clothing`, `${data.contentfulClothing.name}`, `Jackets`, `Vests`]} 
-        description={`Check out our ${data.contentfulClothing.name} currently starting at $${minPrice}`}
-        location={data.location}
+        title={contentfulClothing.name} 
+        keywords={[`Clothing`, `${contentfulClothing.name}`, `Jackets`, `Vests`]} 
+        description={`Check out our ${contentfulClothing.name} currently starting at $${minPrice}`}
+        location={location}
       />
       <div className="container details-page mb-5">
         <div className="product-details">
@@ -98,12 +98,12 @@ const ProductDetails = ({ data }) => {
               </Tabs>}
           </div>
           <div>
-            <h2>{data.contentfulClothing.name}</h2>
+            <h2>{contentfulClothing.name}</h2>
           </div>
           <StarRatingComponent
             name="rate1"
             starCount={5}
-            value={data.contentfulClothing.rating}
+            value={contentfulClothing.rating}
           />
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
@@ -115,11 +115,13 @@ const ProductDetails = ({ data }) => {
                   <option key={i} value={s}>{selectState.value === s ? s : `${s} - $${prices[i]}`}</option>
                 ))}
               </select>
-
-              <select onChange={handleColorChange} value={colorState.value} style={{padding: '.3rem', borderRadius: '7px'}} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
-                {!colorState.userSelection && <option value="Choose Color">Choose Color</option> }
-                {data.contentfulClothing.colors.map((d, i) => <option key={i} value={d}>{d}</option>)}
-              </select>
+              {
+                contentfulClothing.colors &&
+                <select onChange={handleColorChange} value={colorState.value} style={{padding: '.3rem', borderRadius: '7px'}} onBlur={handleChange} className="form-select form-select-lg mb-3 mt-3">
+                  {!colorState.userSelection && <option value="Choose Color">Choose Color</option> }
+                  {contentfulClothing.colors.map((d, i) => <option key={i} value={d}>{d}</option>)}
+                </select>
+              }
 
             </div>
 
@@ -130,14 +132,14 @@ const ProductDetails = ({ data }) => {
                 <button
                   style={{opacity: !selectState.userSelection ? .5: 1}}
                   className="Product snipcart-add-item"
-                  data-item-id={data.contentfulClothing.slug}
+                  data-item-id={contentfulClothing.slug}
                   data-item-image={photos.selectedPhoto === null ? "" : photos.selectedPhoto.fixed.src}
                   data-item-price={selectState.userSelection ? lookup[selectState.value] : minPrice}
                   data-item-custom1-name="Size"
                   data-item-custom1-options={selectState.sizeAndPriceStr}
                   data-item-custom2-name={colorState.colorsStr ? "Colors": null}
                   data-item-custom2-options={colorState.colorsStr ? colorState.colorsStr: null }
-                  data-item-name={data.contentfulClothing.name}
+                  data-item-name={contentfulClothing.name}
                   data-item-url={url}
                   disabled={!selectState.userSelection}
                   data-item-weight={selectState.userSelection ? weightCodes[selectState.value] : 2}
@@ -151,7 +153,7 @@ const ProductDetails = ({ data }) => {
                     selectState.userSelection ?
                     <Link
                     state={{ 
-                      itemName: data.contentfulClothing.name,
+                      itemName: contentfulClothing.name,
                       itemPrice: lookup[selectState.value],
                       itemSize: selectState.value
                     }} className="btn btn-primary" to="/contact-us">Contact Us</Link>
@@ -164,7 +166,7 @@ const ProductDetails = ({ data }) => {
           </div>
           <div
             dangerouslySetInnerHTML={{
-              __html: data.contentfulClothing.description.childMarkdownRemark.html
+              __html: contentfulClothing.description.childMarkdownRemark.html
             }}
           />
         </div>
