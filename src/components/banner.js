@@ -18,13 +18,13 @@ export default function Banner ({ BannerData }) {
 
     return (
       <div className="slider-section">
-          <div className="scroll-container">
+          {/* <div className="scroll-container">
             <p className="blink">
               <small>
                 We'll be Temporarily Closed July 1 - 18th
               </small>
             </p>
-          </div> 
+          </div>  */}
         <Slider {...settings}>
           {BannerData.map((items, i) => (
             <div key={i} className="item">
