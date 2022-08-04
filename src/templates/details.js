@@ -112,7 +112,7 @@ const ProductDetails = ({ data: { contentfulClothing }, location }) => {
           />
           <div className="row buynowinner">
             <div className="col-sm-4 col-md-3">
-              <span className="price">{sizeState.userSelection ? `$${lookup[sizeState.value]}` : <small style={{fontSize: '.8rem'}}>{`$${minPrice} - $${maxPrice}`}</small>}</span>
+              <span className="price">{sizeState.userSelection && lookup[sizeState.value] ? `$${lookup[sizeState.value]}` : <small style={{fontSize: '.8rem'}}>{`$${minPrice} - $${maxPrice}`}</small>}</span>
               
               <select value={sizeState.value} style={{padding: '.3rem', borderRadius: '7px'}} onChange={handleSizeChange} onBlur={handleSizeChange} className="form-select form-select-lg mb-3 mt-3">
                 {!sizeState.userSelection && <option value="Choose Size">Choose Size</option> }
