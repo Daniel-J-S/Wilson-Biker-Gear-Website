@@ -658,10 +658,12 @@ p {
   z-index: 10;
   width: 100%;
   padding-top: .2rem;
-  background-color: rgb(244, 233, 176);
+  background-color: #ffffff;
+  /* background-color: rgb(244, 233, 176); */
   height: 2rem; 
   overflow: hidden;
   white-space: nowrap;
+  box-shadow:0 5px 10px -3px rgba(0,0,0,0.25);
 }
 
 
