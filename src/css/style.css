@@ -661,10 +661,11 @@ p {
   background-color: rgb(244, 233, 176);
   height: 2rem; 
   overflow: hidden;
+  white-space: nowrap;
 }
 
 
-.blink {
+/* .blink {
   text-align: center;
   animation: blinker 3s linear infinite;
 }
@@ -673,6 +674,17 @@ p {
   50% {
     opacity: 0;
   }
+} */
+
+.scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: scroll 30s linear infinite;
+  -webkit-animation: scroll 30s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 /* for Firefox */
@@ -697,5 +709,35 @@ p {
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+  }
+
+}
+
+
+@media (max-width:600px){
+/* for Firefox */
+@-moz-keyframes scroll {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-200%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes scroll {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-200%); }
+}
+
+@keyframes scroll {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-200%);
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%);
+  }
+
   }
 }
