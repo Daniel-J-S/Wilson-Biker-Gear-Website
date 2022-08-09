@@ -717,6 +717,17 @@ p {
 
 
 @media (max-width:600px){
+
+.scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: scroll 20s linear infinite;
+  -webkit-animation: scroll 20s linear infinite;
+  animation: scroll 20s linear infinite;
+}
 /* for Firefox */
 @-moz-keyframes scroll {
   from { -moz-transform: translateX(100%); }
@@ -736,9 +747,9 @@ p {
     transform: translateX(100%);
   }
   to {
-    -moz-transform: translateX(-225%);
-    -webkit-transform: translateX(-225%);
-    transform: translateX(-225%);
+    -moz-transform: translateX(-250%);
+    -webkit-transform: translateX(-250%);
+    transform: translateX(-250%);
   }
 
   }
