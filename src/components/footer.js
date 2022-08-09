@@ -42,6 +42,10 @@ class Footer extends Component {
                                     Fort Worth, TX 76116<br />
                                     </a>
                                     <a href="tel:8173860631">(817) 386-0631</a>
+                                    <p className="mt-5 mb-3" style={{maxWidth: '15rem', margin: 'auto', fontWeight: 600}}>
+                                    We are not affiliated or associated with any other location other 
+                                    than our only location at 3016 Alta Mere on the West side of Fort Worth.
+                                    </p>
                                 </address>
                                 <p className="mt-5 mb-3"><strong>Hours of Operation</strong></p>
                                 <ul>
