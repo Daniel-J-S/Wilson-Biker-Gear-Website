@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 
 
-export default function Banner ({ BannerData }) {
+export default function Banner ({ BannerData, bannerMessage }) {
   const settings = {
     dots: true,
     speed: 5000,
@@ -18,20 +18,16 @@ export default function Banner ({ BannerData }) {
 
     return (
       <div className="slider-section">
-          {/* <div className="scroll-container">
-            <p className="blink">
-              <small>
-                We'll be Temporarily Closed July 1 - 18th
-              </small>
-            </p>
-          </div>  */}
-          <div className="scroll-container">
+          {
+            bannerMessage.node.display &&
+            <div className="scroll-container">
             <p className="scroll-text">
               <small>
-              We are not affiliated or associated with any other location other than our only location at 3016 Alta Mere on the Westside of Fort Worth.
+              {bannerMessage.node.content}
               </small>
             </p>
-          </div> 
+          </div>
+          } 
         <Slider {...settings}>
           {BannerData.map((items, i) => (
             <div key={i} className="item">

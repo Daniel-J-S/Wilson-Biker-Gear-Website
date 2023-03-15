@@ -51,7 +51,8 @@ class Footer extends Component {
                                 <ul>
                                     {/* <li className="blink">Temporarily Closed July 1 - 18th</li> */}
                                     <li>Tues - Sat: 9 AM - 5 PM</li>
-                                    <li>Sun - Mon: CLOSED</li>
+                                    <li>Sun: 10 AM - 3 PM</li>
+                                    <li>Mon: CLOSED</li>
                                 </ul>
                             </div>
                         </div>
