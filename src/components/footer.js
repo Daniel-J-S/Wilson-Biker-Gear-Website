@@ -49,10 +49,8 @@ class Footer extends Component {
                                 </address>
                                 <p className="mt-5 mb-3"><strong>Hours of Operation</strong></p>
                                 <ul>
-                                    {/* <li className="blink">Temporarily Closed July 1 - 18th</li> */}
                                     <li>Tues - Sat: 9 AM - 5 PM</li>
-                                    <li>Sun: 10 AM - 3 PM</li>
-                                    <li>Mon: CLOSED</li>
+                                    <li>Sun-Mon: CLOSED</li>
                                 </ul>
                             </div>
                         </div>
