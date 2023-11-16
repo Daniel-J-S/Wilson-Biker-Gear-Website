@@ -30,7 +30,7 @@ export default function Banner ({ BannerData, bannerMessage }) {
           }
             <div className="holiday-hours-container">
               <p>
-                <small>
+                <small className="scroll-text">
                   Holiday Hours: Open Thanksgiving 9-3 - Closed Christmas Eve & Christmas Day
                 </small>
               </p>

@@ -667,7 +667,7 @@ p {
 }
 
 .holiday-hours-container {
-  position: fixed;
+  position: relative;
   z-index: 10;
   width: 100%;
   padding-top: .2rem;
