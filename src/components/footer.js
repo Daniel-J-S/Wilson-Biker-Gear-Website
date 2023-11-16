@@ -49,8 +49,9 @@ class Footer extends Component {
                                 </address>
                                 <p className="mt-5 mb-3"><strong>Hours of Operation</strong></p>
                                 <ul>
-                                    <li>Tues - Sat: 9 AM - 5 PM</li>
-                                    <li>Sun-Mon: CLOSED</li>
+                                    <li>Weds - Sat: 9 AM - 5 PM</li>
+                                    <li>Sun: 9 AM - 3 PM</li>
+                                    <li>Mon - Tues: CLOSED</li>
                                 </ul>
                             </div>
                         </div>
