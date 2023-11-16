@@ -659,24 +659,24 @@ p {
   width: 100%;
   padding-top: .2rem;
   background-color: #ffffff;
-  /* background-color: rgb(244, 233, 176); */
   height: 2rem; 
   overflow: hidden;
   white-space: nowrap;
-  box-shadow:0 5px 10px -3px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 10px -3px rgba(0,0,0,0.25);
 }
 
 .holiday-hours-container {
-  position: relative;
+  position: fixed; /* or relative, depending on your layout needs */
+  /* top: 7rem; Shift down by the height of the scroll-container */
   z-index: 10;
   width: 100%;
   padding-top: .2rem;
-  background-color: #4df555;
-  /* background-color: rgb(244, 233, 176); */
+  background-color: #0ba712;
+  color: #ffffff;
   height: 2rem; 
   overflow: hidden;
   white-space: nowrap;
-  box-shadow:0 5px 10px -3px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 10px -3px rgba(0,0,0,0.25);
 }
 
 
@@ -697,7 +697,7 @@ p {
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  
+  text-align: center;
   -moz-animation: scroll 15s linear infinite;
   -webkit-animation: scroll 15s linear infinite;
   animation: scroll 15s linear infinite;

@@ -18,7 +18,7 @@ export default function Banner ({ BannerData, bannerMessage }) {
 
     return (
       <div className="slider-section">
-          {
+          {/* {
             bannerMessage.node.display &&
             <div className="scroll-container">
               <p className="scroll-text">
@@ -27,10 +27,10 @@ export default function Banner ({ BannerData, bannerMessage }) {
                 </small>
               </p>
             </div>
-          }
+          } */}
             <div className="holiday-hours-container">
-              <p>
-                <small className="scroll-text">
+              <p className="scroll-text">
+                <small>
                   Holiday Hours: Open Thanksgiving 9-3 - Closed Christmas Eve & Christmas Day
                 </small>
               </p>
