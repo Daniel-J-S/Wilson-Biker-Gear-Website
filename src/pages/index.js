@@ -142,7 +142,7 @@ const IndexPage = data => {
           <h2>Welcome to Wilson Biker Gear</h2>
           <h3>Pardon Our Dust</h3>
           <p>Our Website is Temporarily Under Construction Until Further Notice</p>
-          <p>Please call us at: <a href="tel:817-386-0631">817 386-0631</> if you need assistance</p>
+          <p>Please call us at: <a href="tel:817-386-0631">817 386-0631</a> if you need assistance</p>
         </section>
       </div>
       {/* <Banner 
