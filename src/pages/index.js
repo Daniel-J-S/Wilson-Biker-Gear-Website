@@ -134,12 +134,15 @@ const IndexPage = data => {
         <section style={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'start',
           justifyContent: 'center',
+          padding: '1rem',
+          lineHeight: '2rem',
         }}>
           <h2>Welcome to Wilson Biker Gear</h2>
           <h3>Pardon Our Dust</h3>
           <p>Our Website is Temporarily Under Construction Until Further Notice</p>
+          <p>Please call us at: <a href="tel:817-386-0631">817 386-0631</> if you need assistance</p>
         </section>
       </div>
       {/* <Banner 

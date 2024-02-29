@@ -11,7 +11,7 @@ class Footer extends Component {
                     <div className="container">
                         <div className="footer-widget footer-content">
                             <section id="nav_menu-8" className="widget widget_nav_menu">
-                                <div className="menu-main-container">
+                                {/* <div className="menu-main-container">
                                     <ul id="menu-main" className="menu">
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/store">Store</Link></li>
@@ -19,7 +19,7 @@ class Footer extends Component {
                                         <li><Link to="/contact-us">Contact</Link></li>
                                         <li><Link className="snipcart-customer-signin" to="/#/signin?returnUrl=%2Fdashboard">My Account</Link></li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </section>
                         </div>
                         <div className="footer-bottom social-right-menu mt-3">
