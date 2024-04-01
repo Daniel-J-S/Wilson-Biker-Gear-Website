@@ -71,7 +71,7 @@ const ResponsiveNav = () => {
       <Link to="/" onClick={() => setNavVisibility(false)}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
-      {/* <CSSTransition
+      <CSSTransition
         in={isSmallScreen && isNavVisible}
         timeout={350}
         classNames="navAnimation"
@@ -97,7 +97,7 @@ const ResponsiveNav = () => {
         <div className={isNavVisible ? 'burger-animate': 'fixed'} />
         <div className={isNavVisible ? 'burger-animate': 'fixed'} />
         <div className={isNavVisible ? 'burger-animate': 'fixed'} />
-      </button> */}
+      </button>
     </div>
   );
 };

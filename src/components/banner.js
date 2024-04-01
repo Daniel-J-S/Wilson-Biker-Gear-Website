@@ -28,13 +28,13 @@ export default function Banner ({ BannerData, bannerMessage }) {
               </p>
             </div>
           } */}
-            <div className="holiday-hours-container">
+            {/* <div className="holiday-hours-container">
               <p className="scroll-text">
                 <small>
                   Holiday Hours: Open Thanksgiving 9-3 - Closed Christmas Eve & Christmas Day
                 </small>
               </p>
-            </div> 
+            </div>  */}
         <Slider {...settings}>
           {BannerData.map((items, i) => (
             <div key={i} className="item">

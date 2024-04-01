@@ -124,7 +124,7 @@ const IndexPage = data => {
         description="40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time."
         location={data.location}
       />
-      <div style={{
+      {/* <div style={{
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
@@ -144,8 +144,8 @@ const IndexPage = data => {
           <p>Our Website is Temporarily Under Construction Until Further Notice</p>
           <p>Please call us at: <a href="tel:817-386-0631">817 386-0631</a> if you need assistance</p>
         </section>
-      </div>
-      {/* <Banner 
+      </div> */}
+      <Banner 
         bannerMessage={data.data.allContentfulBannerMessage.edges[0]}
         BannerData={data.data.allContentfulHeaderBanner.edges} 
       />
@@ -191,7 +191,7 @@ const IndexPage = data => {
       <div style={{margin: '7rem 0'}} />
       <div className="mt-5" style={{backgroundColor: 'black'}}>
         <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d519.1963103009764!2d-97.44133079496027!3d32.72965701376882!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635121261650!5m2!1sen!2sus" width="100%" height="375" style={{ padding: 0, margin: 0, borderTop: '1px solid #808080', border: 0}} loading="lazy" />
-      </div> */}
+      </div>
     </>
   );
 }
