@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+// import { Link } from 'gatsby';
+// import Img from 'gatsby-image';
 import SEO from '../components/seo';
-import Banner from '../components/banner';
-import StarRatingComponent from 'react-star-rating-component';
-import { graphql } from 'gatsby';
-import { productFilter } from '../utils/product-filter';
-import { processSizeAndPrice } from '../utils/process-size-and-price';
+// import Banner from '../components/banner';
+// import StarRatingComponent from 'react-star-rating-component';
+// import { graphql } from 'gatsby';
+// import { productFilter } from '../utils/product-filter';
+// import { processSizeAndPrice } from '../utils/process-size-and-price';
 
-
+/*
 function IndexPost ({ data, linkData }) {
     return (
       <React.Fragment>
@@ -112,10 +112,12 @@ function AccessoryPost ({ data, linkData }) {
     );
 }
 
+*/
+
 const IndexPage = data => {
-  const mens = productFilter(data.data.allContentfulClothing.edges, 'Mens');
-  const ladies = productFilter(data.data.allContentfulClothing.edges, 'Ladies');
-  const whips = productFilter(data.data.allContentfulAccessory.edges, 'Get Back Whips');
+  // const mens = productFilter(data.data.allContentfulClothing.edges, 'Mens');
+  // const ladies = productFilter(data.data.allContentfulClothing.edges, 'Ladies');
+  // const whips = productFilter(data.data.allContentfulAccessory.edges, 'Get Back Whips');
   return (
     <>
       <SEO 
@@ -124,7 +126,7 @@ const IndexPage = data => {
         description="40 years experience in leather goods, sewing and passing on the best prices to customers. Looking for Biker Gear, accessories or just need your patches sewn on? We specialize in exceptional quality and precision to ensure they are done right the first time."
         location={data.location}
       />
-      {/* <div style={{
+      <div style={{
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
@@ -144,7 +146,10 @@ const IndexPage = data => {
           <p>Our Website is Temporarily Under Construction Until Further Notice</p>
           <p>Please call us at: <a href="tel:817-386-0631">817 386-0631</a> if you need assistance</p>
         </section>
-      </div> */}
+      </div> 
+      </> 
+      /*
+  
       <Banner 
         bannerMessage={data.data.allContentfulBannerMessage.edges[0]}
         BannerData={data.data.allContentfulHeaderBanner.edges} 
@@ -192,160 +197,160 @@ const IndexPage = data => {
       <div className="mt-5" style={{backgroundColor: 'black'}}>
         <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d519.1963103009764!2d-97.44133079496027!3d32.72965701376882!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c8648782889ba25!2sWilson%20Biker%20Gear!5e0!3m2!1sen!2sus!4v1635121261650!5m2!1sen!2sus" width="100%" height="375" style={{ padding: 0, margin: 0, borderTop: '1px solid #808080', border: 0}} loading="lazy" />
       </div>
-    </>
+    </> */
   );
 }
 
 export default IndexPage;
 
-export const query = graphql`
-  query AboutQuery {
-    allContentfulClothing(sort:{fields:createdAt, order: DESC}){
-      edges{
-        node{
-          id
-          name
-          slug
-          rating
-          discount
-          category {
-            name
-          }
-          image {
-            fluid(maxWidth: 1000) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-          productMorePhotos {
-            fluid(maxWidth: 1000) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-          sizesAndPrices
-          description {
-            childMarkdownRemark {
-              excerpt(pruneLength: 140)
-            }
-          }
-        }
-      }
-    }
-    allContentfulAccessory(sort:{fields:createdAt, order: DESC}){
-      edges{
-        node{
-          id
-          name
-          slug
-          rating
-          price
-          discount
-          category {
-            name
-          }
-          image {
-            fluid(maxWidth: 1000) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-          productMorePhotos {
-            fluid(maxWidth: 1000) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-          variations
-          description {
-            childMarkdownRemark {
-              excerpt(pruneLength: 140)
-            }
-          }
-        }
-      }
-    }
-    allContentfulHeaderBanner {
-      edges {
-        node {
-          title
-          subHeading
-          image {
-            fluid(maxWidth: 1800) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-    contentfulDealCountDown {
-      title
-      featureImage {
-        fluid(maxWidth: 1800) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-      date(formatString: "D MMMM, YYYY")
-    }
-    allContentfulBlogs(limit: 3,sort:{fields:createdAt,order: DESC}) {
-      edges {
-        node {
-          id
-          title
-          slug
-          featureImage {
-            fluid(maxWidth: 1120) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-    allContentfulBannerMessage {
-      edges {
-        node {
-          content
-          display
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query AboutQuery {
+//     allContentfulClothing(sort:{fields:createdAt, order: DESC}){
+//       edges{
+//         node{
+//           id
+//           name
+//           slug
+//           rating
+//           discount
+//           category {
+//             name
+//           }
+//           image {
+//             fluid(maxWidth: 1000) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//           productMorePhotos {
+//             fluid(maxWidth: 1000) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//           sizesAndPrices
+//           description {
+//             childMarkdownRemark {
+//               excerpt(pruneLength: 140)
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allContentfulAccessory(sort:{fields:createdAt, order: DESC}){
+//       edges{
+//         node{
+//           id
+//           name
+//           slug
+//           rating
+//           price
+//           discount
+//           category {
+//             name
+//           }
+//           image {
+//             fluid(maxWidth: 1000) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//           productMorePhotos {
+//             fluid(maxWidth: 1000) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//           variations
+//           description {
+//             childMarkdownRemark {
+//               excerpt(pruneLength: 140)
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allContentfulHeaderBanner {
+//       edges {
+//         node {
+//           title
+//           subHeading
+//           image {
+//             fluid(maxWidth: 1800) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//         }
+//       }
+//     }
+//     contentfulDealCountDown {
+//       title
+//       featureImage {
+//         fluid(maxWidth: 1800) {
+//           base64
+//           aspectRatio
+//           src
+//           srcSet
+//           srcWebp
+//           srcSetWebp
+//           sizes
+//         }
+//       }
+//       date(formatString: "D MMMM, YYYY")
+//     }
+//     allContentfulBlogs(limit: 3,sort:{fields:createdAt,order: DESC}) {
+//       edges {
+//         node {
+//           id
+//           title
+//           slug
+//           featureImage {
+//             fluid(maxWidth: 1120) {
+//               base64
+//               aspectRatio
+//               src
+//               srcSet
+//               srcWebp
+//               srcSetWebp
+//               sizes
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allContentfulBannerMessage {
+//       edges {
+//         node {
+//           content
+//           display
+//         }
+//       }
+//     }
+//   }
+// `;
